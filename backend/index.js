@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const userAccountsRouter = require("./src/routes/userAccountsRouter");
+const partnerRouter = require("./src/routes/partnershipRouter");
 
 dotenv.config();
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/admin", userAccountsRouter);
+app.use("/api/partnership", partnerRouter);
 
 // app.use(express.static(path.resolve(__dirname, "./client")));
 // app.get("*", (req, res) => {
