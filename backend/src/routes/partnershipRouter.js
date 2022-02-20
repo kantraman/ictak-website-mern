@@ -1,8 +1,9 @@
 const express = require("express"); 
 const Partnership = require("../model/PartnershipInfo");
 const partnershipRouter = express.Router();
+const sendEmail = require("../helpers/sendmail");
 
-partnershipRouter.post("/partnerInfo", async (req, res) => {
+partnershipRouter.post("/partnerinfo", async (req, res) => {
     
     try {
         
@@ -22,7 +23,14 @@ partnershipRouter.post("/partnerInfo", async (req, res) => {
         if (item.fullname !== "" && item.email !== "" && item.phone !== "" && item.firm !== "" && item.noOfEmployees > 0 ) {
             const partner = new Partnership(item);
             partner.save()
-                .then(() => res.json({ status: "Success" }))
+                .then(() => {
+                    res.json({ status: "Success" });
+                    sendEmail(item.email,
+                        "ICTAK Partnership Application Confirmation",
+                        "This email message is a computer generated message to confirm the receipt of your partnership application." +
+                        "<br/><br/> Thanks & Regards, <br/> <b>ICT Academy of Kerala</b>"
+                    );
+                })
                 .catch((er) => {
                     console.log(er)
                     res.sendStatus(500).json({ status: "Error" });
