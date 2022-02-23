@@ -88,7 +88,7 @@ const PartnerApply = () => {
 
     return (
         <Form className="mx-auto col-lg-6 col-md-8 col-sm-10 p-3 text-light regFormPart" onSubmit={handleSubmit}>
-            <div className="text-center fs-1 mb-1">PARTNERSHIP REGISTRATION</div>
+            <div className="text-center fs-1 mb-1 titleTop">PARTNERSHIP REGISTRATION</div>
             <div className="text-center mb-1 pb-3">
                 For further questions, including partnership opportunities,
                 please email For support / clarification feel free to call: 811-184-0022 or
