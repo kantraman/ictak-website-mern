@@ -16,7 +16,7 @@ membershipRouter.post("/academic-member", (req, res) => {
             principalName: req.body.principalName,
             principalEmail: req.body.principalEmail,
             principalPhone: req.body.principalPhone,
-            pocName: req.body.poclName,
+            pocName: req.body.pocName,
             pocEmail: req.body.pocEmail,
             pocPhone: req.body.pocPhone,
             totalEligibleIntake: req.body.totalEligibleIntake,

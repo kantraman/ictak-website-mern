@@ -111,8 +111,8 @@ const PartnerApply = () => {
                     <Form.Text className="text-danger">{errorValues.phone}</Form.Text>
                 </Form.Group>
                 <Form.Group className="col-md-6  mb-3" controlId="formFirm">
-                    <Form.Label>Firm</Form.Label>
-                    <Form.Control type="text" name="firm" value={postValues.firm} onChange={handleChange} placeholder="Establishment Date" />
+                    <Form.Label>Firm Establishment Date</Form.Label>
+                    <Form.Control type="date" name="firm" value={postValues.firm} onChange={handleChange} placeholder="Establishment Date" />
                     <Form.Text className="text-danger">{errorValues.firm}</Form.Text>
                 </Form.Group>
                 <Form.Group className="col-md-6  mb-3" controlId="formAddress">
