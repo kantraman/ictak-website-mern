@@ -1,0 +1,45 @@
+.memberHeading{
+    text-align: center;
+    background-image: url('https://i.imgur.com/c2qLcXK.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: center;
+}
+
+.blackCoverWP{
+    background-color:rgb(3,3,3,0.8);
+    padding: 80px;
+}
+
+.blackCover{
+    background-color:rgb(4,54,54,0.8);
+    margin: 0;
+    padding: 10px;
+}
+.benefitsIcon{
+    height:128px;
+    width: 128px;
+    background-color: cornflowerblue;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.academicBenefits{
+    background: url('https://i.imgur.com/eFkznWG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:white;
+}
+
+.academicCourse{
+    background-image: linear-gradient(45deg, rgba(
+        145, 146, 122, 0.8), rgba(10, 7, 8, 0.8)),url('https://i.imgur.com/UMdL7gC.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+}
