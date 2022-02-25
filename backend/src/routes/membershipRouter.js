@@ -46,13 +46,15 @@ membershipRouter.post("/academic-member", (req, res) => {
                 })
                 .catch((er) => {
                     console.log(er)
-                    res.sendStatus(500).json({ status: "Error" });
+                    if(!res.headersSent)
+                        res.sendStatus(500).json({ status: "Error" });
                 });
         } else {
             res.json({ status: "Error", message: "Invalid inputs" });
         }
     } catch (error) {
-        res.json({ status: "Error", message: error.message });
+        if(!res.headersSent)
+            res.json({ status: "Error", message: error.message });
     }
 })
 
@@ -92,13 +94,15 @@ membershipRouter.post("/corporate-member", (req, res) => {
                 })
                 .catch((er) => {
                     console.log(er)
-                    res.sendStatus(500).json({ status: "Error" });
+                    if(!res.headersSent)
+                        res.sendStatus(500).json({ status: "Error" });
                 });
         } else {
             res.json({ status: "Error", message: "Invalid inputs" });
         }
     } catch (error) {
-        res.json({ status: "Error", message: error.message });
+        if(!res.headersSent)
+            res.json({ status: "Error", message: error.message });
     }
 })
 
