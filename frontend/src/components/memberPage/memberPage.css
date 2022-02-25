@@ -1,3 +1,9 @@
+.memberMain{
+    background-color: #333333;
+    color: white;
+    background-image: linear-gradient(45deg, rgb(120, 87, 148), rgb(17, 2, 26));
+}
+
 .memberHeading{
     text-align: center;
     background-image: url('https://i.imgur.com/c2qLcXK.jpg');
@@ -23,6 +29,8 @@
     background-color: cornflowerblue;
     padding: 20px;
     border-radius: 50%;
+    background-image: linear-gradient(45deg, dodgerblue, rgb(116, 184, 243));
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .academicBenefits{
@@ -41,5 +49,25 @@
     background-position: center;
     background-color: #333333;
     color: white;
-    padding: 20px;
+    padding : 60px 10px;
 }
+
+.premiumMemList{
+    overflow-y: auto;
+    height: 300px;
+}
+
+.validityPM{
+    color: white;
+    text-align: center;
+    background: linear-gradient(45deg, rgb(37, 37, 37), rgb(17, 2, 26));
+    background-color: #333333;
+    line-height: 30px;
+    padding: 100px 10px;
+}
+
+
+
+
+
+

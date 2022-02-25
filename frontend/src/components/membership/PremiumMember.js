@@ -66,7 +66,6 @@ const PremiumMember = () => {
         } else {
             setPostValues({ ...postValues, [name]: value });
         }
-        console.log(postValues);
     }
 
     //Manage form submit

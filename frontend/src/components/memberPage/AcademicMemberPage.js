@@ -3,16 +3,17 @@ import TechPartners from './TechPartners';
 import AcademicBenefits from './AcademicBenefits';
 import CourseStats from './CourseStats';
 import courses from './AcademicCourseStats';
+import PremiumMemList from './PremiumMemList';
+import ValidityPM from './ValidityPM';
 import './memberPage.css';
-
 
 const AcademicMemberPage = () => {
     return (
-        <>
+        <div className="memberMain">
             <div className="memberHeading">
                 <div className="blackCoverWP">
-                    <h1>Premium Membership</h1>
-                    <p className="fs-5 mx-auto col-md-8">
+                    <h1 className="fs-1">Premium Membership</h1>
+                    <p className="fs-4 mx-auto col-md-8">
                         ICT Academy of Kerala (ICTAK) is pleased to offer its Premium Memberships to selected
                         Engineering , Science &amp; Management Institutions and Polytechnics in the state.
                         Through the programme, ICTAK will support its members institution’s Faculty members,
@@ -23,14 +24,16 @@ const AcademicMemberPage = () => {
                     <a href="#k" className="btn btn-primary btn-lg">Register</a>
                 </div>
             </div>
+            <PremiumMemList />
             <div className="academicBenefits">
                 <AcademicBenefits />
             </div>
             <div className="academicCourse">
                 <CourseStats courseStats={courses} />
             </div>
+            <ValidityPM />
             <TechPartners />
-        </>
+        </div>
     );
 };
 
