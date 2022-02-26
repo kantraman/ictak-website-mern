@@ -5,8 +5,8 @@ import { Student, Faculty, University } from '../../assets/index.js'
 const AcademicBenefits = () => {
     return (
         <Row className="col-lg-10 mx-auto">
-            <h1 className="text-center blackCover">Benefits</h1>
-            <Col className="blackCover">
+            <h1 className="text-center">Benefits</h1>
+            <Col>
                 <div className="text-center">
                     <h3>For Students</h3>
                     <Student className="benefitsIcon" />
@@ -22,7 +22,7 @@ const AcademicBenefits = () => {
                     </li>
                 </ul>
             </Col>
-            <Col className="blackCover">
+            <Col>
                 <div className="text-center">
                     <h3>For Faculty</h3>
                     <Faculty className="benefitsIcon" /></div>
@@ -41,7 +41,7 @@ const AcademicBenefits = () => {
                     </li>
                 </ul>
             </Col>
-            <Col className="blackCover">
+            <Col>
                 <div className="text-center">
                     <h3>For Institutions </h3>
                     <University className="benefitsIcon" /></div>

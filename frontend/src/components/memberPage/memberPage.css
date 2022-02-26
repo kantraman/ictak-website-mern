@@ -18,32 +18,31 @@
     padding: 80px;
 }
 
-.blackCover{
-    background-color:rgb(4,54,54,0.8);
-    margin: 0;
-    padding: 10px;
-}
 .benefitsIcon{
-    height:128px;
-    width: 128px;
-    background-color: cornflowerblue;
-    padding: 20px;
-    border-radius: 50%;
-    background-image: linear-gradient(45deg, dodgerblue, rgb(116, 184, 243));
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    height:64px;
+    width: 64px;
+    background-color: #3b4ba3;
+    padding: 10px;
+    border-radius: 10px;
+    place-items: center center;
+    background: radial-gradient(circle at bottom center, #3b4ba3 15px, #0a2475, #021f75);
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
 }
 
 .academicBenefits{
-    background: url('https://i.imgur.com/eFkznWG.png');
+    background: linear-gradient(45deg, rgb(4,54,54,0.8), rgba(10, 7, 8, 0.8)),url('https://i.imgur.com/eFkznWG.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: rgb(4,54,54,0.8);
     color:white;
+    padding: 40px 0;
+    line-height: 25px;
 }
 
 .academicCourse{
     background-image: linear-gradient(45deg, rgba(
-        145, 146, 122, 0.8), rgba(10, 7, 8, 0.8)),url('https://i.imgur.com/UMdL7gC.jpg') ;
+        145, 146, 122, 0.8), rgba(10, 7, 8, 0.8)),url('https://i.imgur.com/OKeuflw.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -64,6 +63,18 @@
     background-color: #333333;
     line-height: 30px;
     padding: 100px 10px;
+}
+
+.corpMemberHeading{
+    background-image: linear-gradient(45deg, rgba(65, 63, 63, 0.8), rgb(17, 2, 26,0.8)),
+                    url('https://i.imgur.com/svQsbNM.png');
+    background-color: #333333; 
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px;              
 }
 
 
