@@ -42,7 +42,7 @@ const ContactSectionStyled = styled.div`
         transform: translate(-50%, -50%);
         z-index: -1;
         img{
-            width: 80%;
+            width: 100%;
             opacity: 0.08;
         }
     }
@@ -65,7 +65,7 @@ const ContactSectionStyled = styled.div`
         
           }
           .icon {
-            font-size: 20px;
+            font-size: 25px;
             margin-right: 10px;
             color: #c6c6cf ;
             cursor: pointer;
