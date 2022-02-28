@@ -21,12 +21,15 @@ accountsRouter.post("/signup", async (req, res) => {
                 .then(() => res.json({ status: "Success" }))
                 .catch((er) => {
                     console.log(er)
-                    res.sendStatus(500).json({ status: "Error" });
+                    if(!res.headersSent)
+                        res.sendStatus(500).json({ status: "Error" });
                 });
         } else {
             res.json({ status: "Error", message: "Invalid inputs" });
-        }} catch (error) {
-        res.json({ status: "Error", message: error.message });
+        }
+    } catch (error) {
+        if(!res.headersSent)
+            res.json({ status: "Error", message: error.message });
     }
    
 })
@@ -48,7 +51,8 @@ accountsRouter.post("/login", async (req, res) => {
         });
          
     } catch (error) {
-        res.json({ status: "Error", message: error.message })
+        if(!res.headersSent)
+            res.json({ status: "Error", message: error.message })
     }
     
 
