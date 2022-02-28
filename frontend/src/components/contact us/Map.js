@@ -14,7 +14,7 @@ const MapStyles = styled.div`
   }
   .map__card {
     position: absolute;
-    right: 13%;
+    right: 12%;
     bottom: 10%;
     padding: 1rem;
     background: var(--deep-dark);
