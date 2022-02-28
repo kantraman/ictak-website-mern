@@ -14,16 +14,16 @@ const MapStyles = styled.div`
   }
   .map__card {
     position: absolute;
-    right: 10%;
+    right: 13%;
     bottom: 10%;
-    padding: 2rem;
+    padding: 1rem;
     background: var(--deep-dark);
-    width: 100%;
-    max-width: 300px;
+    width: 150%;
+    max-width: 325px;
     border-radius: 12px;
   }
   .map__card__heading {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -35,7 +35,7 @@ const MapStyles = styled.div`
       #ed2b2b 50%
     );
     
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
@@ -65,16 +65,18 @@ const MapStyles = styled.div`
   a:hover::before{
     width: 100%;
   }
-  
+
   /* Presentational Styles */
-  body {
-    display: grid;
-    font-family: 'Poppins', sans-serif;
-    font-size: 27px;
-    font-weight: 700;
-    height: 100vh;
-    place-items: center;
-  }
+   body {
+     display: grid;
+     font-family: 'Poppins', sans-serif;
+     font-size: 20px;
+     font-weight: 700;
+     height: 100vh;
+     place-items: center;
+   }
+  
+  
   @media only screen and (max-width: 768px) {
     background-position: 80% center;
   }
