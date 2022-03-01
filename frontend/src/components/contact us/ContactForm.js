@@ -8,7 +8,7 @@ const FormStyle = styled.form`
     margin-bottom: 2rem;
   }
   label {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   input,
   textarea {
@@ -29,7 +29,8 @@ const FormStyle = styled.form`
   button[type='submit'] {
     background-color: var(--gray-1);
     color: var(--black);
-    font-size: 2rem;
+    font-size: 1.2rem;
+    font-weight:bold;
     display: inline-block;
     outline: none;
     border: none;
@@ -39,8 +40,7 @@ const FormStyle = styled.form`
   }
   p {
     color: red;
-    padding: 2rem;
-    font-size: 2rem;
+    font-size: 1rem;
   }
 `;
 
