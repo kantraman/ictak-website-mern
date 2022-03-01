@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const FormStyle = styled.form`
@@ -37,14 +37,59 @@ const FormStyle = styled.form`
     border-radius: 8px;
     cursor: pointer;
   }
+  p {
+    color: red;
+    padding: 2rem;
+    font-size: 2rem;
+  }
 `;
 
 function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const initialValues = {name:"",email:"",message:""};
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setFormErrors(validate(formValues));
+      setIsSubmit(true);
+    };
+
+    useEffect(() => {
+      console.log(formErrors);
+      if (Object.keys(formErrors).length === 0 && isSubmit) {
+        console.log(formValues);
+      }
+    }, [formErrors]);
+
+    const validate = (values) => {
+      const errors = {};
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (!values.name) {
+        errors.name = "name is required!";
+      }
+      if (!values.email) {
+        errors.email = "Email is required!";
+      } else if (!regex.test(values.email)) {
+        errors.email = "This is not a valid email format!";
+      }
+      if (!values.message) {
+        errors.message = "message is required";
+      } 
+      return errors;
+    };
+
+    
+
   return (
-    <>
+    <div>
+    <form onSubmit={handleSubmit}>
       <FormStyle>
         <div className="form-group">
           <label htmlFor="name">
@@ -53,11 +98,13 @@ function ContactForm() {
               type="text"
               id="name"
               name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+              value={formValues.name}
+              onChange={handleChange}
             />
           </label>
         </div>
+        <p>{formErrors.name}</p>
         <div className="form-group">
           <label htmlFor="email">
             Your Email
@@ -65,11 +112,13 @@ function ContactForm() {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              value={formValues.email}
+              onChange={handleChange}
             />
           </label>
         </div>
+        <p>{formErrors.email}</p>
         <div className="form-group">
           <label htmlFor="message">
             Your message
@@ -77,15 +126,18 @@ function ContactForm() {
               type="text"
               id="message"
               name="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Message"
+              value={formValues.message}
+              onChange={handleChange}
             />
           </label>
         </div>
-        <button type="submit">Send</button>
+        <p>{formErrors.message}</p>
+        <button type="submit" onClick={handleSubmit}>Send</button>
       </FormStyle>
-    </>
+      </form>
+
+    </div>
   );
 }
-
 export default ContactForm;
