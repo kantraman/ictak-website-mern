@@ -2,11 +2,11 @@
     width: 100%;
     margin-bottom: 2rem;
     }
-    label {
+    .form-group label {
         font-size: 1.5rem;
     }
-    input,
-    textarea {
+    .form-group input,
+    .form-group textarea {
     width: 100%;
     font-size: 2rem;
     padding: 1.2rem;
@@ -17,11 +17,11 @@
     border-radius: 8px;
     margin-top: 1rem;
     }
-    textarea {
+    .form-group textarea {
     min-height: 250px;
     resize: vertical;
     }
-    button[type='submit'] {
+    .form-group button[type='submit'] {
     background-color: var(--gray-1);
     color: var(--black);
     font-size: 1.2rem;
