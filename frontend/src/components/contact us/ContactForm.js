@@ -1,48 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import './ContactForm.css';
 
-const FormStyle = styled.form`
-  width: 100%;
-  .form-group {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-  label {
-    font-size: 1.5rem;
-  }
-  input,
-  textarea {
-    width: 100%;
-    font-size: 2rem;
-    padding: 1.2rem;
-    color: var(--gray-1);
-    background-color: var(--deep-dark);
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    margin-top: 1rem;
-  }
-  textarea {
-    min-height: 250px;
-    resize: vertical;
-  }
-  button[type='submit'] {
-    background-color: var(--gray-1);
-    color: var(--black);
-    font-size: 1.2rem;
-    font-weight:bold;
-    display: inline-block;
-    outline: none;
-    border: none;
-    padding: 1rem 4rem;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  p {
-    color: red;
-    font-size: 1rem;
-  }
-`;
+// const FormStyle = styled.form`
+//   width: 100%;
+//   .form-group {
+//     width: 100%;
+//     margin-bottom: 2rem;
+//   }
+//   label {
+//     font-size: 1.5rem;
+//   }
+//   input,
+//   textarea {
+//     width: 100%;
+//     font-size: 2rem;
+//     padding: 1.2rem;
+//     color: var(--gray-1);
+//     background-color: var(--deep-dark);
+//     outline: none;
+//     border: none;
+//     border-radius: 8px;
+//     margin-top: 1rem;
+//   }
+//   textarea {
+//     min-height: 250px;
+//     resize: vertical;
+//   }
+//   button[type='submit'] {
+//     background-color: var(--gray-1);
+//     color: var(--black);
+//     font-size: 1.2rem;
+//     font-weight:bold;
+//     display: inline-block;
+//     outline: none;
+//     border: none;
+//     padding: 1rem 4rem;
+//     border-radius: 8px;
+//     cursor: pointer;
+//   }
+//   p {
+//     color: red;
+//     font-size: 1rem;
+//   }
+// `;
 
 function ContactForm() {
   const initialValues = {name:"",email:"",message:""};
@@ -90,7 +91,7 @@ function ContactForm() {
   return (
     <div>
     <form onSubmit={handleSubmit}>
-      <FormStyle>
+      {/* <FormStyle> */}
         <div className="form-group">
           <label htmlFor="name">
             Your Name
@@ -104,7 +105,7 @@ function ContactForm() {
             />
           </label>
         </div>
-        <p>{formErrors.name}</p>
+        <p className='error'>{formErrors.name}</p>
         <div className="form-group">
           <label htmlFor="email">
             Your Email
@@ -118,7 +119,7 @@ function ContactForm() {
             />
           </label>
         </div>
-        <p>{formErrors.email}</p>
+        <p className='error'>{formErrors.email}</p>
         <div className="form-group">
           <label htmlFor="message">
             Your message
@@ -132,9 +133,9 @@ function ContactForm() {
             />
           </label>
         </div>
-        <p>{formErrors.message}</p>
+        <p className='error'>{formErrors.message}</p>
         <button type="submit" onClick={handleSubmit}>Send</button>
-      </FormStyle>
+      {/* </FormStyle> */}
       </form>
 
     </div>
