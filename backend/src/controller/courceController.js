@@ -44,11 +44,6 @@ const updateCource = asyncHandler(
         
         const cource = await Cource.findById(req.params.id);
 
-        // if(cource.user.toString() !==req.user_id.toString()){
-        //     res.status(401);
-        //     throw new Error("You can't perform this action");
-
-        // }
         if (cource) {
             cource.title = title;
             cource.Description = Description;
@@ -66,11 +61,6 @@ const updateCource = asyncHandler(
 
 const deleteCource = asyncHandler(async(req,res)=>{
     const cource = await Cource.findById(req.params.id);
-
-    // if(cource.user.toString() !==req.user_id.toString()){
-    //         res.status(401);
-    //         throw new Error("You can't perform this action");
-    // }
     if(cource){
         await cource.remove();
         res.json({ message: "Cource Removed"})

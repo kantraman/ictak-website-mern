@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function CreateCource({ a }) {
   const [title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
+  const [courseError , setError] = useState(false);
 
 
   const dispatch = useDispatch();
@@ -23,9 +24,15 @@ function CreateCource({ a }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createCourceAction(title,Description));
-    if (!title || !Description) return;
+      setError(false);
 
+    dispatch(createCourceAction(title,Description));
+    if (!title || !Description){
+
+      setError(true);
+    }else{
+    navigate("/Cources");
+    }
 
   };
 
@@ -58,7 +65,6 @@ function CreateCource({ a }) {
               />
             </Form.Group>
 
-           
             <Button type="submit" variant="primary">
               Create cource
             </Button>
@@ -68,6 +74,8 @@ function CreateCource({ a }) {
         <Card.Footer className="text-muted">
           {/* Creating on - {new Date().toLocalDateString()} */}
         </Card.Footer>
+
+        {courseError && <p style={{color:'red'}}>failed to create course.</p>}
       </Card>
     </div>
   );
