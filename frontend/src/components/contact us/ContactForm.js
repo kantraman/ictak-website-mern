@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import styled from 'styled-components';
 import './ContactForm.css';
 
@@ -49,7 +49,6 @@ function ContactForm() {
   const initialValues = {name:"",email:"",message:""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,17 +57,12 @@ function ContactForm() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      setFormErrors(validate(formValues));
-      setIsSubmit(true);
-    };
-
-    useEffect(() => {
-      console.log(formErrors);
-      if (Object.keys(formErrors).length === 0 && isSubmit) {
-        console.log(formValues);
+      let formErrors = validate(formValues);
+      setFormErrors(formErrors);
+      if (Object.keys(formErrors).length === 0) {
         contactUsSubmit();
       }
-    }, [formErrors]);
+    };
 
     const contactUsSubmit = async () => {
       const name = formValues.name;
@@ -87,7 +81,7 @@ function ContactForm() {
       const body = await response.json();
       if (body.status === "Success") {
         window.alert("Message sent!");
-  
+        setFormValues(initialValues);
       } else {
         window.alert("Error! Try again!");
       }
