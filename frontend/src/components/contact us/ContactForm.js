@@ -66,8 +66,32 @@ function ContactForm() {
       console.log(formErrors);
       if (Object.keys(formErrors).length === 0 && isSubmit) {
         console.log(formValues);
+        contactUsSubmit();
       }
     }, [formErrors]);
+
+    const contactUsSubmit = async () => {
+      const name = formValues.name;
+      const email = formValues.email;
+      const message = formValues.message;
+
+      const response = await fetch("/api/contact/contact-us", {
+        method: 'post',
+        body: JSON.stringify({
+          name, email, message
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const body = await response.json();
+      if (body.status === "Success") {
+        window.alert("Message sent!");
+  
+      } else {
+        window.alert("Error! Try again!");
+      }
+    }
 
     const validate = (values) => {
       const errors = {};
@@ -132,9 +156,10 @@ function ContactForm() {
               onChange={handleChange}
             />
           </label>
-        </div>
-        <p className='error'>{formErrors.message}</p>
+          <p className='error'>{formErrors.message}</p>
         <button type="submit" onClick={handleSubmit}>Send</button>
+        </div>
+
       {/* </FormStyle> */}
       </form>
 
