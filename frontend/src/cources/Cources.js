@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useDispatch , useSelector} from "react-redux";
 import { deleteCourceAction, listCource } from '../actions/courceActions';
 import { Link } from 'react-router-dom';
+import "./Cources.css";
 
 const Cources = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Cources = () => {
   const courceDelete = useSelector((state) => state.courceDelete);
   const { loading : loadingDelete , error:errorDelete , success : successDelete } = courceDelete;
 
-  const deleteHandler = (id) => {
+  const deleteCource = (id) => {
     if (window.confirm("Are You Sure?")) {
       dispatch(deleteCourceAction(id));
     }
@@ -42,7 +43,11 @@ const Cources = () => {
           <Col md={3} key={cource._id} style={{ marginBottom: "20px" }}>
             <CardGroup className="courseCard">
               <Card>
-                <Card.Img variant="top" src={cource.image} alt="" />
+                <img
+                  src="https://www.codingdojo.com/blog/wp-content/uploads/FULL-STACK-DEV-GRAPH-2.jpg"
+                  alt=""
+                  className="card-img-top"
+                />
 
                 <Card.Body>
                   <span
@@ -72,20 +77,26 @@ const Cources = () => {
                       {cource.Description}
                     </span>
                   </Card.Text>
+                  <a
+                    href={`/singlecourse/${cource._id}`}
+                    className="btn-btn-outline-success"
+                  >
+                    Read More
+                  </a>
                 </Card.Body>
-                <div style={{ marginBottom: "20px"}}>
+                <div style={{ marginBottom: "20px",marginLeft:"40px" }}>
                   <Button href={`/cource/${cource._id} `}>Edit</Button>
                   <Button
                     varient="danger"
                     className="mx-2"
-                    onClick={() => deleteHandler(cource.id)}
+                    onClick={() => deleteCource(cource._id)}
                   >
                     Delete
                   </Button>
+                  <div style={{ marginBottom: "20px" ,marginTop:"20px" , marginLeft:"10px"}}>
+                    <Button href="/registerScreen">Register Here</Button>
+                  </div>
                 </div>
-                {/* <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </Card.Footer> */}
               </Card>
             </CardGroup>
           </Col>
