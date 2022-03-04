@@ -2,6 +2,9 @@ const express = require("express");
 const contactRouter = express.Router();
 const sendEmail = require("../helpers/sendmail");
 const Contact = require("../model/ContactUs");
+const auth = require("../helpers/auth")
+const export2xls = require("../helpers/convertToExcel");
+const convertJsonToExcel = require("../helpers/convertToExcel");
 
 contactRouter.post("/contact-us", (req, res) => {
     try {
@@ -35,6 +38,23 @@ contactRouter.post("/contact-us", (req, res) => {
             res.json({ status: "Error", message: error.message });
     }
    
+})
+
+//Get all contact messages as xls
+contactRouter.get("/messages", auth, async (req, res) => {
+    try {
+        let filter = { respondedBack: false };
+        let projection = {
+            _id: 0,
+            name: 1,
+            email: 1,
+            message: 1
+        };
+        let messages = await Contact.find(filter, projection);
+        convertJsonToExcel(messages, "Contact Messages", res);
+    } catch (err) {
+        console.log(err);
+    }
 })
 
 module.exports = contactRouter;
