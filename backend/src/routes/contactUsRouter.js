@@ -3,7 +3,6 @@ const contactRouter = express.Router();
 const sendEmail = require("../helpers/sendmail");
 const Contact = require("../model/ContactUs");
 const auth = require("../helpers/auth")
-const export2xls = require("../helpers/convertToExcel");
 const convertJsonToExcel = require("../helpers/convertToExcel");
 
 contactRouter.post("/contact-us", (req, res) => {
@@ -40,10 +39,19 @@ contactRouter.post("/contact-us", (req, res) => {
    
 })
 
-//Get all contact messages as xls
-contactRouter.get("/messages", auth, async (req, res) => {
+//Export contact messages as xls
+contactRouter.get("/export-msg", auth, async (req, res) => {
     try {
-        let filter = { respondedBack: false };
+        let fromDate = new Date(req.query.fromDate);
+        let toDate = new Date(req.query.toDate);
+        toDate.setDate(toDate.getDate() + 1);
+
+        let filter = {
+            date: {
+                $gte: fromDate,
+                $lt: toDate
+            }
+        }
         let projection = {
             _id: 0,
             name: 1,
@@ -51,7 +59,39 @@ contactRouter.get("/messages", auth, async (req, res) => {
             message: 1
         };
         let messages = await Contact.find(filter, projection);
-        convertJsonToExcel(messages, "Contact Messages", res);
+        if (messages.length > 0) {
+            convertJsonToExcel(messages, "Contact Messages", res);
+        } else {
+            res.json({ status: "Error", message: "No records found" });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+//view all messages between dates
+contactRouter.get("/messages", auth, async (req, res) => {
+    try {
+        let fromDate = new Date(req.query.fromDate);
+        let toDate = new Date(req.query.toDate);
+        toDate.setDate(toDate.getDate() + 1);
+
+        let filter = {
+            date: {
+                $gte: fromDate,
+                $lt: toDate
+            }
+        }
+        let projection = {
+            _id: 0,
+            name: 1,
+            email: 1,
+            message: 1
+        };
+        let messages = await Contact.find(filter, projection);
+
+        res.json(messages);
+        
     } catch (err) {
         console.log(err);
     }
