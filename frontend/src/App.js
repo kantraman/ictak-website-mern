@@ -9,8 +9,20 @@ import Contact from './components/contact us/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/components/contact us/Contact.css';
 
+import { Flex } from '@chakra-ui/react';
+import Carousalcontainer from './components/Carousalcontainer';
+import Scroll from './components/Scroll';
+import CounterCard from './components/CounterCard';
+import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import { Videocard } from './components/Videocard/Videocard';
+
 function App() {
   return (
+    <div className="App">
+
+
     <BrowserRouter>
       <main>
         <Routes>
@@ -23,6 +35,18 @@ function App() {
         </Routes>
       </main>
     </BrowserRouter>
+
+    <Navbar/>
+    <Flex>
+   <Carousalcontainer/>
+   
+    </Flex>
+    <Scroll/>
+    <CounterCard/>
+    <Videocard/>
+    <Footer/>
+    </div>
+
   );
 }
 
