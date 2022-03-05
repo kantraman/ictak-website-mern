@@ -32,16 +32,14 @@ partnershipRouter.post("/partnerinfo", async (req, res) => {
                     );
                 })
                 .catch((er) => {
-                    console.log(er);
-                    if(!res.headersSent)
-                        res.sendStatus(500).json({ status: "Error" });
+                    console.log(er)
+                    res.sendStatus(500).json({ status: "Error" });
                 });
         } else {
             res.json({ status: "Error", message: "Invalid inputs" });
         }
     } catch (error) {
-        if(!res.headersSent)
-            res.json({ status: "Error", message: error.message });
+        res.json({ status: "Error", message: error.message });
     }
    
 })
