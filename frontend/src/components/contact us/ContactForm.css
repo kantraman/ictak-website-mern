@@ -1,0 +1,39 @@
+.form-group {
+    width: 100%;
+    margin-bottom: 2rem;
+    }
+    .form-group label {
+        font-size: 1.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+    width: 100%;
+    font-size: 2rem;
+    padding: 1.2rem;
+    color: var(--gray-1);
+    background-color: var(--deep-dark);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    margin-top: 1rem;
+    }
+    .form-group textarea {
+    min-height: 250px;
+    resize: vertical;
+    }
+    .form-group button[type='submit'] {
+    background-color: var(--gray-1);
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight:bold;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 1rem 4rem;
+    border-radius: 8px;
+    cursor: pointer;
+    }
+    .error {
+    color: red;
+    font-size: 1rem;
+    }
