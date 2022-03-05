@@ -49,42 +49,6 @@ app.use((err, req, res, next) => {
 //   res.json(cource);
 // });
  
-//Admin-login routing
-app.post("api/login", async (req, res) => {
-
-    try {
-        console.log(req.body)
-        const { username, password } = req.body;
-
-
-        if (!(username && password)) {
-            res.status(400).send("All input is required");
-        }
-
-        const user = await UserInfo.findOne({ username });
-
-        if (user.password == password) {
-
-            const token = JWT.sign(
-                { user_id: user._id, username },
-                'jaison'
-            );
-
-
-            user.token = token;
-
-
-            res.status(200).json(user);
-        } else {
-            res.status(400).send("Invalid Credentials");
-
-        }
-    } catch (err) {
-        console.log(err);
-    }
-
-});
-
 
 mongoose.connect(process.env.DBConnectionString, {
     useNewUrlParser: true,
