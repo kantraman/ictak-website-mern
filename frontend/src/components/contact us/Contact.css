@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    
+  }
+  :root{
+    --dark-bg: #262626;
+    --gray-1: #BCB4B4;
+    --deep-dark: #1E1E1E;
+    --gray-2: #363636;
+    --white : white;
+    --black: black;
+  }
+    
+  .contact{
+    font-family: 'RobotoMono Regular';
+    color: #BCB4B4;
+    background-color: var(--dark-bg); 
+  }
+    
+  .contact ul li{
+    list-style: none;
+  }
+  .contact a{
+    text-decoration: none;
+   
+  }
+  .contact svg, 
+  .contact img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .contact button{
+    outline: none
+  }
+  .contact .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  @font-face {
+    font-family: 'RobotoMono Regular';
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW4Ep0.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; 
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w0aXpsog.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+  @font-face {
+    font-family: 'Montserrat Bold';
+    font-style: normal;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v23/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+
+ 
+  .contact h1, 
+  .contact h2, 
+  .contact h3, 
+  .contact h4,
+  .contact h5, 
+  .contact h6{
+    font-family: 'Montserrat SemiBold'
+  } 

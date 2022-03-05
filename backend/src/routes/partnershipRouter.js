@@ -3,10 +3,10 @@ const Partnership = require("../model/PartnershipInfo");
 const partnershipRouter = express.Router();
 const sendEmail = require("../helpers/sendmail");
 
+//Partnership Registration Application
 partnershipRouter.post("/partnerinfo", async (req, res) => {
     
     try {
-        
         var item = {
             fullname: req.body.fullname,
             email: req.body.email,
@@ -20,7 +20,7 @@ partnershipRouter.post("/partnerinfo", async (req, res) => {
             expects: req.body.expects,
             promoters: req.body.promoters
         }
-        if (item.fullname !== "" && item.email !== "" && item.phone !== "" && item.firm !== "" && item.noOfEmployees > 0 ) {
+        if (item.fullname !== "" && item.email !== "" && item.phone !== "" && item.firm !== "" && item.noOfEmployees > 0) {
             const partner = new Partnership(item);
             partner.save()
                 .then(() => {
@@ -32,13 +32,16 @@ partnershipRouter.post("/partnerinfo", async (req, res) => {
                     );
                 })
                 .catch((er) => {
-                    console.log(er)
-                    res.sendStatus(500).json({ status: "Error" });
+                    console.log(er);
+                    if(!res.headersSent)
+                        res.sendStatus(500).json({ status: "Error" });
                 });
         } else {
             res.json({ status: "Error", message: "Invalid inputs" });
-        }} catch (error) {
-        res.json({ status: "Error", message: error.message });
+        }
+    } catch (error) {
+        if(!res.headersSent)
+            res.json({ status: "Error", message: error.message });
     }
    
 })
