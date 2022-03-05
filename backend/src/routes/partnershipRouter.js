@@ -2,6 +2,8 @@ const express = require("express");
 const Partnership = require("../model/PartnershipInfo");
 const partnershipRouter = express.Router();
 const sendEmail = require("../helpers/sendmail");
+const auth = require("../helpers/auth")
+const convertJsonToExcel = require("../helpers/convertToExcel");
 
 //Partnership Registration Application
 partnershipRouter.post("/partnerinfo", async (req, res) => {
@@ -44,6 +46,88 @@ partnershipRouter.post("/partnerinfo", async (req, res) => {
             res.json({ status: "Error", message: error.message });
     }
    
+})
+
+//Partnership application export to xslx
+partnershipRouter.get("/export-partner", auth, async (req, res) => {
+    try {
+        let fromDate = new Date(req.query.fromDate);
+        let toDate = new Date(req.query.toDate);
+        toDate.setDate(toDate.getDate() + 1);
+
+        let filter = {
+            date: {
+                $gte: fromDate,
+                $lt: toDate
+            }
+        }
+        let projection = {
+            _id: 0,
+            "Full Name": "$fullname",
+            "Email ID": "$email",
+            "Phone": "$phone",
+            "Est Date": "$firm",
+            "Address": "$address",
+            "District": "$district",
+            "Office Space in Sq m": "$officeSpace",
+            "No of employees": "$noOfEmployees",
+            "Brief Report": "$briefReport",
+            "Expectation from partnership": "$expects",
+            "Promoter profile": "$promoters"
+        };
+        let partnerAppl = await Partnership.find(filter, projection);
+        if (partnerAppl.length > 0) {
+            convertJsonToExcel(partnerAppl, "Partnership Applications", res);
+        } else {
+            res.json({ status: "Error", message: "No records found" });
+        }
+    
+    } catch (err) {
+        console.log(err);
+        if (!res.headersSent)
+            res.json({ status: "Error", message: err.message });
+    }
+})
+
+//View partnership applications
+partnershipRouter.get("/view-partner", auth, async (req, res) => {
+    try {
+        let fromDate = new Date(req.query.fromDate);
+        let toDate = new Date(req.query.toDate);
+        toDate.setDate(toDate.getDate() + 1);
+
+        let filter = {
+            date: {
+                $gte: fromDate,
+                $lt: toDate
+            }
+        }
+        let projection = {
+            _id: 0,
+            "Full Name": "$fullname",
+            "Email ID": "$email",
+            "Phone": "$phone",
+            "Est Date": "$firm",
+            "Address": "$address",
+            "District": "$district",
+            "Office Space in Sq m": "$officeSpace",
+            "No of employees": "$noOfEmployees",
+            "Brief Report": "$briefReport",
+            "Expectation from partnership": "$expects",
+            "Promoter profile": "$promoters"
+        };
+        let partnerAppl = await Partnership.find(filter, projection);
+        if (partnerAppl.length > 0) {
+            res.json(partnerAppl);
+        } else {
+            res.json({ status: "Error", message: "No records found" });
+        }
+    
+    } catch (err) {
+        console.log(err);
+        if (!res.headersSent)
+            res.json({ status: "Error", message: err.message });
+    }
 })
 
 
