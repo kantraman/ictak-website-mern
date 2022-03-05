@@ -8,6 +8,7 @@ import RegisterScreen from "./components/registerScreen/RegisterScreen";
 import Contact from './components/contact us/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/components/contact us/Contact.css';
+
 import { Flex } from '@chakra-ui/react';
 import Carousalcontainer from './components/Carousalcontainer';
 import Scroll from './components/Scroll';
@@ -20,6 +21,8 @@ import { Videocard } from './components/Videocard/Videocard';
 function App() {
   return (
     <div className="App">
+
+
     <BrowserRouter>
       <main>
         <Routes>
@@ -32,6 +35,7 @@ function App() {
         </Routes>
       </main>
     </BrowserRouter>
+
     <Navbar/>
     <Flex>
    <Carousalcontainer/>
@@ -42,6 +46,7 @@ function App() {
     <Videocard/>
     <Footer/>
     </div>
+
   );
 }
 
