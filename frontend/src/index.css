@@ -1,61 +1,13 @@
-/* *{
-  padding: 0;
+body {
   margin: 0;
-  box-sizing: border-box;
-}
-:root{
-  --dark-bg: #262626;
-  --gray-1: #BCB4B4;
-  --deep-dark: #1E1E1E;
-  --gray-2: #363636;
-  --white : white;
-  --black: black;
-}
-html{
-  font-size: 10px;
-  font-family: 'Roboto Mono';
-  background-color: var(--dark-bg);
-}
-ul,li{
-  list-style: none;
-}
-a{
-  text-decoration: none;
-}
-img, svg{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-button{
-  outline: none
-}
-.container {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: 'RobotoMono Regular';
-  font-style: normal;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
-@font-face {
-  font-family: 'Montserrat SemiBold';
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Montserrat Bold';
-  font-style: normal;
-}
-html{
-  font-family: 'RobotoMono Regular';
-  color: var(--gray-1);
-}
-*{
-  font-family: 'RobotoMono Regular';
-  color: var(--gray-1);
-}
-h1,h2,h3,h4,h5,h6{
-  font-family: 'Montserrat SemiBold'
-} */
