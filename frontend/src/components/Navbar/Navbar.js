@@ -71,7 +71,7 @@ function Navbar(props) {
    Home
   </MenuButton>
   <MenuList>
-    <MenuItem  color='black'>About Us</MenuItem>
+    <Link href='/aboutus'><MenuItem  color='black'>About Us</MenuItem></Link>
     
   </MenuList>
 </Menu>

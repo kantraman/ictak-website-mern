@@ -8,7 +8,7 @@ import RegisterScreen from "./components/registerScreen/RegisterScreen";
 import Contact from './components/contact us/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/components/contact us/Contact.css';
-
+import { AboutUs } from "./components/Aboutus/AboutUs";
 
 import { Mainpage } from "./components/Mainpage";
 function App() {
@@ -26,6 +26,7 @@ function App() {
           <Route path="/singlecourse/:id" element={<SingleCourse />} />
           <Route path="/registerScreen" element={<RegisterScreen />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       </main>
     </BrowserRouter>
