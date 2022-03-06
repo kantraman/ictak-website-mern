@@ -3,9 +3,9 @@ import { Gem } from '../../assets'
 
 const ValidityPM = () => {
     return (
-        <div className="validityPM">
+        <div className="validityPM d-flex flex-column align-items-center">
             <Gem className="benefitsIcon"/>
-            <h2 className="pt-3">Commercial and validity period</h2>
+            <h2 className="fs-2 pt-3">Commercial and validity period</h2>
             <p className = "fs-5 mx-auto col-md-8">
                 ICT Academy of Kerala is forming a Premium membership programme with selected
                 Engineering/ Science/ Management institutions in the state. The institutions will be selected
