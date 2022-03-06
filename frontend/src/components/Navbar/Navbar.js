@@ -1,10 +1,10 @@
 import React from 'react';
 import Logo from '../../assets/images/logo.png';
-
+import Contact from '../contact us/Contact';
 import {
   Box,
   Stack,
-  
+  Link,
   Flex,
   Text,
   Button,
@@ -71,7 +71,7 @@ function Navbar(props) {
    Home
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>About Us</MenuItem>
+    <MenuItem  color='black'>About Us</MenuItem>
     
   </MenuList>
 </Menu>
@@ -132,9 +132,9 @@ function Navbar(props) {
   
 </Menu>
 <Menu>
-  <MenuButton color='black' as={Button} >
-   News
-  </MenuButton>
+  <Link  textDecor='none' href="/Contact"><MenuButton  color='black' as={Button}   >
+   Contact Us
+  </MenuButton></Link>
   
 </Menu>
 <Menu>
