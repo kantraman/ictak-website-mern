@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from "react-redux";
+import { ChakraProvider } from '@chakra-ui/react'
 import store from "./store";
 ReactDOM.render(
-  <Provider store = {store}>
+  <ChakraProvider store = {store}>
     <App />
-  </Provider>,
+  </ChakraProvider>,
   document.getElementById('root')
 );
 
