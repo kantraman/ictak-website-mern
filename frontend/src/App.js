@@ -14,7 +14,7 @@ import Partnership from './components/partnership/Partnership';
 import CorporateMember from './components/membership/CorporateMember';
 import PremiumMember from './components/membership/PremiumMember';
 import DateRange from './components/dateRange/DateRange';
-
+import Techathlon from './components/eventTechathlon/Techathlon';
 
 import { Mainpage } from "./components/Mainpage";
 function App() {
@@ -36,6 +36,7 @@ function App() {
             <Route path="/corporate-member" element={<CorporateMemberPage />} />
             <Route path="/academic-member-apply" element={<PremiumMember />} />
             <Route path="/corporate-member-apply" element={<CorporateMember />} />
+            <Route path="/techathlon"  element={<Techathlon />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/export-academic" element={<DateRange type={1} />} />
             <Route path="/export-corporate" element={<DateRange type={2} />} />

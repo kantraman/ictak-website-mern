@@ -2,10 +2,13 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PartnerApply from './PartnerApply';
 import './Partnership.css';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const Partnership = () => {
     return (
         <div className="partnerBg">
+            <Navbar />
             <Row>
                 <img src="https://i.imgur.com/LD37RUf.gif" alt="Partnership" className="img-fluid"></img>
             </Row>
@@ -18,6 +21,7 @@ const Partnership = () => {
                 </Col>
             </Row>
             <PartnerApply />
+            <Footer />
         </div>
     );
 };

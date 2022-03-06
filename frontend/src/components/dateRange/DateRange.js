@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const DateRange = (props) => {
     const expType = props.type;
@@ -114,6 +116,7 @@ const DateRange = (props) => {
 
     return (
         <div>
+            <Navbar />
             <Form className="mx-auto col-lg-6 col-md-8 col-sm-10 p-3 mt-5 text-light regFormPart" onSubmit={handleSubmit}>
                 <div className="text-center fs-3 mb-1 titleTop">Export Date Range</div>
                 <Form.Group className="col-md-6 mb-2" controlId="formFromDate">
@@ -128,6 +131,7 @@ const DateRange = (props) => {
                 </Form.Group>
                 <Button type="submit">Submit</Button>
             </Form>
+            <Footer />
         </div>
     );
 };
