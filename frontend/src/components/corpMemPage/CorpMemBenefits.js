@@ -6,10 +6,10 @@ const CorporateBenefits = () => {
     return (
         <>
             <Row className="col-lg-8 col-md-10 col-sm-12 mx-auto">
-                <h1 className="text-center">Benefits</h1>
+                <h1 className="text-center fs-1">Benefits</h1>
                 <Col className="col-lg-6 col-md-8 col-sm-12">
-                    <div className="text-center">
-                        <h3>Collaborate</h3>
+                    <div className="text-center d-flex flex-column align-items-center">
+                        <h3 className="fs-3">Collaborate</h3>
                         <Collaborate className="benefitsIcon" />
                     </div>
                     <p>
@@ -18,8 +18,8 @@ const CorporateBenefits = () => {
                     </p>
                 </Col>
                 <Col className="col-lg-6 col-md-8 col-sm-12">
-                    <div className="text-center">
-                        <h3>Interactions</h3>
+                    <div className="text-center d-flex flex-column align-items-center">
+                        <h3 className="fs-3">Interactions</h3>
                         <Handshake className="benefitsIcon" />
                     </div>
                     <p>
@@ -31,8 +31,8 @@ const CorporateBenefits = () => {
             </Row>
             <Row className="col-lg-8 col-md-10 col-sm-12 mx-auto">
                 <Col className="col-lg-6 col-md-8 col-sm-12">
-                    <div className="text-center">
-                        <h3>Corporate training benifits </h3>
+                    <div className="text-center d-flex flex-column align-items-center">
+                        <h3 className="fs-3">Corporate training benifits </h3>
                         <Trainer className="benefitsIcon" />
                     </div>
                     <p>
@@ -40,8 +40,8 @@ const CorporateBenefits = () => {
                     </p>
                 </Col>
                 <Col className="col-lg-6 col-md-8 col-sm-12">
-                    <div className="text-center">
-                        <h3>Recruitments</h3>
+                    <div className="text-center d-flex flex-column align-items-center">
+                        <h3 className="fs-3">Recruitments</h3>
                         <Recruit className="benefitsIcon" />
                     </div>
                     <p>

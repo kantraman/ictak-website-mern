@@ -5,11 +5,14 @@ import CourseStats from './CourseStats';
 import courses from './AcademicCourseStats';
 import PremiumMemList from './PremiumMemList';
 import ValidityPM from './ValidityPM';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import './memberPage.css';
 
 const AcademicMemberPage = () => {
     return (
         <div className="memberMain">
+            <Navbar />
             <div className="memberHeading">
                 <div className="blackCoverWP">
                     <h1 className="fs-1">Premium Membership</h1>
@@ -21,7 +24,7 @@ const AcademicMemberPage = () => {
                         immersions on IR4.0 Technologies, and thereby enabling them to reach their Academic
                         and Career potential.
                     </p>
-                    <a href="#k" className="btn btn-primary btn-lg">Register</a>
+                    <a href="/academic-member-apply" className="btn btn-primary btn-lg">Register</a>
                 </div>
             </div>
             <PremiumMemList />
@@ -33,6 +36,7 @@ const AcademicMemberPage = () => {
             </div>
             <ValidityPM />
             <TechPartners />
+            <Footer />
         </div>
     );
 };

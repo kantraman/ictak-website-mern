@@ -4,7 +4,7 @@ import Partners from './techPartnersData'
 
 const TechPartners = () => {
     return (<>
-        <h1 className="text-center mt-3">Our Technology Partners</h1>
+        <h1 className="fs-1 text-center mt-3 p-2">Our Technology Partners</h1>
         <Row className="p-2 mx-auto bg-light col-lg-9 col-md-10">
             {
                 Partners.map((item) => {
