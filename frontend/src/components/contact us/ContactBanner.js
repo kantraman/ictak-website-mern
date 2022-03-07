@@ -10,11 +10,11 @@ function ContactBanner() {
                         Contact Us
                     </h3>
                     <p>Follow us on</p><br></br>
-                    <i className="icon fa-brands fa-google"></i>
-                    <i className="icon fa-brands fa-facebook-f"></i>
-                    <i className="icon fa-brands fa-twitter"></i>
-                    <i className="icon fa-solid fa-envelope"></i>
-                    <i className="icon fa-brands fa-linkedin-in"></i>
+                    <a href='https://www.instagram.com/ictkerala/?hl=en'> <i className="icon fa-brands fa-instagram"></i></a>
+                    <a href='https://www.facebook.com/ictkerala' ><i className="icon fa-brands fa-facebook-f"></i></a>
+                    <a href='https://mobile.twitter.com/ictakerala'><i className="icon fa-brands fa-twitter"></i></a>
+                    <a href='https://www.linkedin.com/company/ict-academy-of-kerala/'><i className="icon fa-brands fa-linkedin-in"></i></a>
+                    
                     
                           
                 </div>
