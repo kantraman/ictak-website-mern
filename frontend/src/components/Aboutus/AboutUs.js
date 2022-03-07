@@ -5,6 +5,7 @@ import back from '../../assets/images/aboutus.gif';
 import main from '../../assets/images/ict.png';
 import './about.css';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 export const AboutUs = () => {
   return (
     <div>
@@ -27,7 +28,7 @@ export const AboutUs = () => {
 <Text padding={2} textAlign='left' fontFamily='sans-serif' fontWeight='extrabold' fontSize='xx-large'>Our Key Focus Areas</Text>
 
 <div class="section_our_solution">
-  <div class="row">
+  <div class="rows">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="our_solution_category">
         <div class="solution_cards_box">
@@ -270,6 +271,7 @@ Constant Update of Technologies</h3>
 </div>
 </Box>
         </Box>
+        <Footer/>
     </div>
   )
 }

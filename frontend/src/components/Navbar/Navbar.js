@@ -91,19 +91,11 @@ function Navbar(props) {
     
   </MenuList>
 </Menu>
+
 <Menu>
-  <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
-   Services
-  </MenuButton>
-  <MenuList>
-    <MenuItem color='black'>Our Vendors</MenuItem>
-    
-  </MenuList>
-</Menu>
-<Menu>
-  <MenuButton color='black' as={Button} >
+ <Link href='/partnership'> <MenuButton color='black' as={Button} >
    Partnership
-  </MenuButton>
+  </MenuButton></Link>
   
 </Menu>
         <Menu>
@@ -111,8 +103,8 @@ function Navbar(props) {
   Membership
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>Academic Membership</MenuItem>
-    <MenuItem color='black'>Corporate Membership</MenuItem>
+    <Link href='/academic-member'><MenuItem color='black'>Academic Membership</MenuItem></Link>
+    <Link href='/corporate-member'><MenuItem color='black'>Corporate Membership</MenuItem></Link>
   </MenuList>
 </Menu>
 <Menu>
@@ -120,9 +112,8 @@ function Navbar(props) {
   Events
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>Digital Workshop</MenuItem>
-    <MenuItem color='black'>Intership</MenuItem>
-    <MenuItem color='black'>Salesforce</MenuItem>
+    <Link href='/techathlon'><MenuItem color='black'>Techathlon</MenuItem></Link>
+    
     
   </MenuList>
 </Menu>
@@ -146,7 +137,7 @@ function Navbar(props) {
   
 </Menu>
 <Menu>
- <Link href='#'> <MenuButton  width='10px' backgroundColor='blue.400' color='black' as={Button} border='1px' >
+ <Link href='#'> <MenuButton   backgroundColor='blue.400' color='black' as={Button} border='1px' >Login
   <BiLogInCircle/>
   </MenuButton></Link>
   
