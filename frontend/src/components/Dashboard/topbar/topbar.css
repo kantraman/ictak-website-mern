@@ -1,0 +1,64 @@
+.topbar{
+    width:100%;
+    height: 60px;
+    background-color: palevioletred;
+    top: 0%;
+    z-index: 999;
+    position: sticky;
+    border-radius: 15px;
+}
+.topbarWrapper{
+    height: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+    color: darkblue;
+}
+.topright{
+    display: flex;
+    align-items: center;
+}
+.topleft{
+    display: flex;
+    align-items: center;
+}
+.topbarIconsContainer{
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #555;
+    padding: 5px;
+}
+.topIconbadge{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.ICT{
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    }
+.adminavatar{
+    width:45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}

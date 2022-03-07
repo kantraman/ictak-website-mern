@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import useToken from '../Admin/useToken';
 
 const DateRange = (props) => {
     const expType = props.type;
@@ -9,7 +10,7 @@ const DateRange = (props) => {
         fromDate: formatDate(new Date(Date.now()).toLocaleDateString("en-UK")),
         toDate: formatDate(new Date(Date.now()).toLocaleDateString("en-UK"))
     }
-    const token = localStorage.getItem("token");
+    const { token } = useToken();
     //Set initial dates
     const [postValues, setPostValues] = useState(initValues);
     const [errorValues, setErrorValues] = useState({});
