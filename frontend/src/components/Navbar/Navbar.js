@@ -127,9 +127,10 @@ function Navbar(props) {
   </MenuList>
 </Menu>
 <Menu>
+  <Link href='https://retail.ictkerala.org/'>
   <MenuButton color='black' as={Button} >
    Paatshala
-  </MenuButton>
+  </MenuButton></Link>
   
 </Menu>
 <Menu>
@@ -139,9 +140,9 @@ function Navbar(props) {
   
 </Menu>
 <Menu>
-  <MenuButton color='black' as={Button} >
+  <Link href='https://ictkerala.zohorecruit.com/jobs/Careers'><MenuButton color='black' as={Button} >
    Careers
-  </MenuButton>
+  </MenuButton></Link>
   
 </Menu>
 <Menu>
