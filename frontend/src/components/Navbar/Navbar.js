@@ -120,9 +120,8 @@ function Navbar(props) {
   Events
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>Digital Workshop</MenuItem>
-    <MenuItem color='black'>Intership</MenuItem>
-    <MenuItem color='black'>Salesforce</MenuItem>
+    <MenuItem color='black'>Techathalon</MenuItem>
+    <MenuItem color='black'>Icset</MenuItem>
     
   </MenuList>
 </Menu>
