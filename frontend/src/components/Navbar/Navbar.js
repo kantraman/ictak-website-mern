@@ -47,11 +47,11 @@ function Navbar(props) {
         {/* <Heading as="h1" size="lg" letterSpacing={"tighter"}>
           Chakra UI
         </Heading> */}
-        <Image boxSize='50px'
+        <Link href='/'><Image boxSize='50px'
     objectFit='cover'
     src={Logo}
     alt='Dan Abramov'
-  />
+  /></Link>
       </Flex>
 
       < Box display={{ base: "block", md: "none" }} marginLeft='10%' onClick={handleToggle}>

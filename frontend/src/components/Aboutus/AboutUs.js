@@ -4,9 +4,11 @@ import { Image,Text } from '@chakra-ui/react';
 import back from '../../assets/images/aboutus.gif';
 import main from '../../assets/images/ict.png';
 import './about.css';
+import Navbar from '../Navbar/Navbar';
 export const AboutUs = () => {
   return (
     <div>
+      <Navbar/>
         <Box >
         <Image  src={back} width='100%' height='130px'></Image>
         <Text padding={5} fontFamily='sans-serif' fontWeight='extrabold' fontSize='xx-large'>About Us</Text>
