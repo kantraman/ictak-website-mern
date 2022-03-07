@@ -1,0 +1,48 @@
+.card 
+{
+  transition: .4s all ease-in;
+  border: none;
+  margin: 25px auto;
+  
+  
+  
+}
+.Studentsmain{
+    background-color: rgba(119, 45, 45, 0.233);
+}
+
+.card-img-top{
+  box-shadow: 0 0 25px rgba(0,0,0,.05);
+  border-radius: 50%;
+}
+
+
+
+
+.product-detail {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  border: 1px;
+  background-color: rgba(223, 217, 217, 0.75);
+  transition: all 0.35s;
+  text-align: center;
+box-sizing: border-box;
+}
+
+
+.card .product-detail .subheading {
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  color: rgba(0,0,0,0.6);
+}
+
+
+.card:hover .product-detail {
+  height: calc(92%);
+  padding-top: 100px;
+}
+

@@ -7,6 +7,7 @@ import './App1.css';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import { Videocard } from './Videocard/Videocard';
+import { Students } from './Students/Students';
 export const Mainpage = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ export const Mainpage = () => {
     <Scroll/>
     <CounterCard/>
     <Videocard/>
+    <Students/>
     <Footer/>
     </div>
   )

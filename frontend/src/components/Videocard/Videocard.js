@@ -47,7 +47,7 @@ export const Videocard = () => {
         
       </Box>
     </Box>
-    <Box className='aboutus'><Text fontFamily='sans-serif' fontSize='large' padding={2} fontWeight='extrabold'>About Us</Text>
+    <Box className='aboutus'><Text fontFamily='sans-serif' fontSize='xx-large' padding={2} fontWeight='extrabold'>About Us</Text>
     <Text fontFamily='sans-serif' fontWeight='bold' textAlign='left' padding={2}>Who we are</Text><Box>We can support you to host an ICT Solution based on our immense experience in the domain. We can understand the unique requirements of clients and our well-experienced team will devote to generate the desired output.</Box>
     <Text fontFamily='sans-serif' fontWeight='bold' textAlign='left' padding={2}>Advisory Service</Text><Box>A range of consulting services provided by Certified Public Accountants (CPA) and other financial advisors to businesses and high net-worth individuals who require specialized advice on capital formation</Box>
     <Text fontFamily='sans-serif' fontWeight='bold' textAlign='left' padding={2}>Internship</Text><Box>The internship program strategies are very specific, measurable, realistic and fit well within the time framework and also showcases what the student hopes to learn from their experiences and the level of academic expectations that are expected!</Box>

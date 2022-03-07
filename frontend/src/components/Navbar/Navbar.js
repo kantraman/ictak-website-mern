@@ -1,10 +1,10 @@
 import React from 'react';
 import Logo from '../../assets/images/logo.png';
-
+import Contact from '../contact us/Contact';
 import {
   Box,
   Stack,
-  
+  Link,
   Flex,
   Text,
   Button,
@@ -12,6 +12,7 @@ import {
  
   useDisclosure
 } from "@chakra-ui/react";
+import { BiLogInCircle } from "react-icons/bi";
 import {
   Menu,
   MenuButton,
@@ -46,11 +47,11 @@ function Navbar(props) {
         {/* <Heading as="h1" size="lg" letterSpacing={"tighter"}>
           Chakra UI
         </Heading> */}
-        <Image boxSize='50px'
+        <Link href='/'><Image boxSize='50px'
     objectFit='cover'
     src={Logo}
     alt='Dan Abramov'
-  />
+  /></Link>
       </Flex>
 
       < Box display={{ base: "block", md: "none" }} marginLeft='10%' onClick={handleToggle}>
@@ -71,7 +72,7 @@ function Navbar(props) {
    Home
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>About Us</MenuItem>
+    <Link href='/aboutus'><MenuItem  color='black'>About Us</MenuItem></Link>
     
   </MenuList>
 </Menu>
@@ -80,13 +81,13 @@ function Navbar(props) {
   Courses
   </MenuButton>
   <MenuList>
-    <MenuItem color='black'>Certified Specialist in Full Stack Development</MenuItem>
-    <MenuItem color='black'>Certified Specialist in Data Science and Analytics</MenuItem>
-    <MenuItem color='black'>Cyber Security Analyst</MenuItem>
-    <MenuItem color='black'>Robotic Process Automation</MenuItem>
-    <MenuItem color='black'>Testing</MenuItem>
-    <MenuItem color='black'>Digital Marketing</MenuItem>
-    <MenuItem color='black'>Other Courses</MenuItem>
+   <Link href='/cource/:id'> <MenuItem color='black'>Certified Specialist in Full Stack Development</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Certified Specialist in Data Science and Analytics</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Cyber Security Analyst</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Robotic Process Automation</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Testing</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Digital Marketing</MenuItem></Link>
+   <Link href='/cource/:id'> <MenuItem color='black'>Other Courses</MenuItem></Link>
     
   </MenuList>
 </Menu>
@@ -132,15 +133,21 @@ function Navbar(props) {
   
 </Menu>
 <Menu>
-  <MenuButton color='black' as={Button} >
-   News
-  </MenuButton>
+  <Link  textDecor='none' href="/Contact"><MenuButton  color='black' as={Button}   >
+   Contact Us
+  </MenuButton></Link>
   
 </Menu>
 <Menu>
   <MenuButton color='black' as={Button} >
    Careers
   </MenuButton>
+  
+</Menu>
+<Menu>
+ <Link href='#'> <MenuButton  width='10px' backgroundColor='blue.400' color='black' as={Button} border='1px' >
+  <BiLogInCircle/>
+  </MenuButton></Link>
   
 </Menu>
         
