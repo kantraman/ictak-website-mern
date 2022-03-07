@@ -1,0 +1,10 @@
+.Dashhome{
+    flex: 4;
+}
+
+
+.Charts{
+    margin-left: 50px;
+    display: flex;
+    margin: 20px;
+}
