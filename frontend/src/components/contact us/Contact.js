@@ -5,15 +5,20 @@ import Map from './Map';
 import './Contact.css';
 import Navbar from '../Navbar/Navbar';
 
+import Footer from '../Footer/Footer';
+
 function Contact() {
-    return(
-        <div><Navbar/>
-        <div className='contact'>
-            
-            <ContactBanner />
-            <ContactSection />
-            <Map />
-        </div></div>
+    return (
+        <>
+            <Navbar />
+            <div className='contact'>
+                <ContactBanner />
+                <ContactSection />
+                <Map />
+                <Footer />
+            </div>
+        </>
+
     );
 }
 export default Contact;
