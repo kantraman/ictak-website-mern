@@ -7,16 +7,16 @@ const CounterCard = () => (
    
          
 
-<div marginTop='10%'>
+<div>
 
   
 
 
 
-  <div classname="row"  >
+  <div classname="crow"  >
    
-        <div  style={{display:'flex'}}>
-      <div className="card">
+        <div  style={{display:'flex', marginTop:'20px', marginBottom:'20px'}}>
+      <div className="ccard" >
       
           <div className="front">
             <img className="profile" width="100%" src={icthall} alt="ICT"/>
@@ -33,7 +33,7 @@ const CounterCard = () => (
  
       </div>
 
-      <div className="card">
+      <div className="ccard">
       
       <div className="front">
         <img className="profile" width="100%" src={ictina} alt="ICT"/>
