@@ -23,6 +23,7 @@ import Dashboard from './components/Dashboard/dashboard/Dashboard';
 import ErrorPage from './components/errorPage/ErrorPage';
 import useToken from './components/Admin/useToken';
 import { Mainpage } from "./components/Mainpage";
+import Icset from './components/eventicset/Icset'
 
 function App() {
   const { token, setToken } = useToken();
@@ -45,6 +46,7 @@ function App() {
               <Route path="/academic-member-apply" element={<PremiumMember />} />
               <Route path="/corporate-member-apply" element={<CorporateMember />} />
               <Route path="/techathlon" element={<Techathlon />} />
+			  <Route path="/icset" element={<Icset />} />
               <Route path="/partnership" element={<Partnership />} />
               <Route path="/login" element={<Login setToken={setToken} />} />
               <Route path="*" element={<ErrorPage />} />
@@ -72,6 +74,7 @@ function App() {
             <Route path="/academic-member-apply" element={<PremiumMember />} />
             <Route path="/corporate-member-apply" element={<CorporateMember />} />
             <Route path="/techathlon" element={<Techathlon />} />
+			<Route path="/icset" element={<Icset />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/export-academic" element={<DateRange type={1} />} />
             <Route path="/export-corporate" element={<DateRange type={2} />} />
