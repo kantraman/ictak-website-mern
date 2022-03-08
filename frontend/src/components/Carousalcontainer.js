@@ -7,7 +7,7 @@ function Carousalcontainer() {
     return (
       <div style={{marginLeft:'10%',marginTop:'1%', width:'80%'}}>
      
-     <Carousel style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}}>
+     <Carousel >
   <Carousel.Item interval={1000}>
     <img
       className="d-block w-150"

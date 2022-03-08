@@ -8,9 +8,6 @@ import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 import { Videocard } from './Videocard/Videocard';
 import { Students } from './Students/Students';
-import TechPartners from './memberPage/TechPartners';
-import { Knowledgepartner } from './Knowledge/Knowledgepartner';
-
 export const Mainpage = () => {
   return (
     <div>
@@ -23,8 +20,6 @@ export const Mainpage = () => {
     <CounterCard/>
     <Videocard/>
     <Students/>
-    <TechPartners/>
-    <Knowledgepartner/>
     <Footer/>
     </div>
   )

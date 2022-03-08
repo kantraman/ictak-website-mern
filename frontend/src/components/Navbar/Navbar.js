@@ -91,11 +91,19 @@ function Navbar(props) {
     
   </MenuList>
 </Menu>
-
 <Menu>
- <Link href='/partnership'> <MenuButton color='black' as={Button} >
+  <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
+   Services
+  </MenuButton>
+  <MenuList>
+    <MenuItem color='black'>Our Vendors</MenuItem>
+    
+  </MenuList>
+</Menu>
+<Menu>
+  <MenuButton color='black' as={Button} >
    Partnership
-  </MenuButton></Link>
+  </MenuButton>
   
 </Menu>
         <Menu>
@@ -103,8 +111,8 @@ function Navbar(props) {
   Membership
   </MenuButton>
   <MenuList>
-    <Link href='/academic-member'><MenuItem color='black'>Academic Membership</MenuItem></Link>
-    <Link href='/corporate-member'><MenuItem color='black'>Corporate Membership</MenuItem></Link>
+    <MenuItem color='black'>Academic Membership</MenuItem>
+    <MenuItem color='black'>Corporate Membership</MenuItem>
   </MenuList>
 </Menu>
 <Menu>
@@ -114,17 +122,13 @@ function Navbar(props) {
   <MenuList>
     <MenuItem color='black'>Techathalon</MenuItem>
     <MenuItem color='black'>Icset</MenuItem>
-
-   <Link href='/techathlon'><MenuItem color='black'>Techathlon</MenuItem></Link>
-   <Link href='/Icset'><MenuItem color='black'>Icset</MenuItem></Link>
     
   </MenuList>
 </Menu>
 <Menu>
-  <Link href='https://retail.ictkerala.org/'>
   <MenuButton color='black' as={Button} >
    Paatshala
-  </MenuButton></Link>
+  </MenuButton>
   
 </Menu>
 <Menu>
@@ -134,13 +138,13 @@ function Navbar(props) {
   
 </Menu>
 <Menu>
-  <Link href='https://ictkerala.zohorecruit.com/jobs/Careers'><MenuButton color='black' as={Button} >
+  <MenuButton color='black' as={Button} >
    Careers
-  </MenuButton></Link>
+  </MenuButton>
   
 </Menu>
 <Menu>
- <Link href='#'> <MenuButton   backgroundColor='blue.400' color='black' as={Button} border='1px' >Login
+ <Link href='#'> <MenuButton  width='10px' backgroundColor='blue.400' color='black' as={Button} border='1px' >
   <BiLogInCircle/>
   </MenuButton></Link>
   
