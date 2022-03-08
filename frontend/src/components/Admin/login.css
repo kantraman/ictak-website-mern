@@ -28,6 +28,7 @@
 }
 .login-container form{
     margin: 20px;
+    text-align: left;
 }
 .login-container label{
     color: black;
