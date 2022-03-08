@@ -1,0 +1,23 @@
+
+  
+  .kcards {
+    display: flex;
+  }
+  .kcard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 3px 3px 12px 2px rgba(black, 0.6);
+    width: 180px;
+    height: 180px;
+    transition: 0.2s;
+   
+  }
+  .kcard:not(:first-child) {
+    margin-left: -2rem;
+  }
+  .kcard:not(:last-child):hover,
+  .kcard:not(:last-child):focus-within {
+    transform: translateY(-1rem);
+    
+  }

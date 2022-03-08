@@ -1,0 +1,13 @@
+.Menu{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    padding: 10px;
+    color: darkblue;
+  
+  }
+  .MenuItem{
+    padding: 5px;
+    font-size: 24px;
+  }
+  
