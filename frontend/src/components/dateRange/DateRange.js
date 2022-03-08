@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+import React, { useEffect, useState } from 'react';
+import { Button, Form, Table, Offcanvas } from 'react-bootstrap';
 import useToken from '../Admin/useToken';
+import Topbar from '../Dashboard/topbar/Topbar';
+import Sidebar from '../Dashboard/sidebar/Sidebar';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 const DateRange = (props) => {
     const expType = props.type;
@@ -14,6 +15,39 @@ const DateRange = (props) => {
     //Set initial dates
     const [postValues, setPostValues] = useState(initValues);
     const [errorValues, setErrorValues] = useState({});
+    const [title, setTitle] = useState("");
+    const [details, setDetails] = useState([]);
+    
+    const [show, setShow] = useState(false);
+    //Offcanvas
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    //Set Title
+    useEffect(() => {
+        let frmTitle = ""
+        switch (expType) {
+            case 1: //Premium Membership application
+                frmTitle = "Premium Membership application - ";
+                break;
+            case 2: //Corporate Membership application
+                frmTitle = "Corporate Membership application - ";
+                break;
+            case 3: //Partnership application
+                frmTitle = "Partnership application - ";
+                break;
+            case 4: //Contact us messages
+                frmTitle = "Contact us messages - ";
+                break;
+            default:
+                frmTitle = "";
+                break;
+        }
+        setTitle(frmTitle);
+        setDetails([]);
+        setErrorValues({});
+        setPostValues(initValues);
+        handleClose();
+    }, [expType])
 
     //Input values to postValues
     const handleChange = (event) => {
@@ -103,6 +137,53 @@ const DateRange = (props) => {
             window.alert("An error occured while getting data.");
         }
     }
+    //To view details
+    const getDetails = async () => {
+        let fromDate = postValues.fromDate;
+        let toDate = postValues.toDate;
+        let validationErrors = validateDates();
+        setErrorValues(validationErrors);
+        if (Object.keys(validationErrors).length !== 0)
+            return 0;
+        let getEP = "";
+        switch (expType) {
+            case 1: //Premium Membership application
+                getEP = "api/membership/view-academic";
+                break;
+            case 2: //Corporate Membership application
+                getEP = "api/membership/view-corporate";
+                break;
+            case 3: //Partnership application
+                getEP = "api/partnership/view-partner";
+                break;
+            case 4: //Contact us messages
+                getEP = "api/contact/messages";
+                break;
+            default:
+                getEP = "api/membership/export-academic";
+                break;
+        }
+        getEP += "?fromDate=" + fromDate + "&toDate=" + toDate + "&token=" + token;
+        try {
+            const response = await fetch(getEP, {
+                method: "get",
+                headers: {
+                    'x-access-token': token
+                }
+            });
+            const body = await response.json();
+            if (body.status !== "Error") {
+                setDetails(body);
+            } else if (body.status === "Error") {
+                window.alert(body.message);
+            }
+            
+        } catch (err) {
+            window.alert("An error occured while getting data.");
+        }
+    }
+
+
     //Format date yyyy-mm-dd
     function formatDate(date) {
         date = date.toString();
@@ -117,9 +198,21 @@ const DateRange = (props) => {
 
     return (
         <div>
-            <Navbar />
-            <Form className="mx-auto col-lg-6 col-md-8 col-sm-10 p-3 mt-5 text-light regFormPart" onSubmit={handleSubmit}>
-                <div className="text-center fs-3 mb-1 titleTop">Export Date Range</div>
+            <Topbar />
+            <Button variant="primary" onClick={handleShow} className='d-flex align-items-center ml-4'>
+                <HamburgerIcon /> Navigation
+            </Button>
+
+            <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Navigation</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <Sidebar />
+                </Offcanvas.Body>
+            </Offcanvas>
+            <Form className="mx-auto col-lg-8 col-md-10 col-sm-12 p-3 mt-5 text-light regFormPart" onSubmit={handleSubmit}>
+                <div className="text-center fs-3 mb-1 titleTop">{title}Export Date Range</div>
                 <Form.Group className="col-md-6 mb-2" controlId="formFromDate">
                     <Form.Label>From Date</Form.Label>
                     <Form.Control type="date" name="fromDate" value={postValues.fromDate} onChange={handleChange} />
@@ -130,11 +223,193 @@ const DateRange = (props) => {
                     <Form.Control type="date" name="toDate" value={postValues.toDate} onChange={handleChange} />
                     <Form.Text className="text-danger">{errorValues.toDate}</Form.Text>
                 </Form.Group>
-                <Button type="submit">Submit</Button>
+                   
+                <Button type="button" onClick={getDetails}>View</Button> &emsp;
+                <Button type="submit">Export</Button><br /><br />
+                <div style={{ overflow: "auto", "white-space": 'nowrap' }}>
+                    <ShowDetails details={details} expType={expType} />
+                </div>
             </Form>
-            <Footer />
         </div>
     );
-};
+}
+
+const ShowDetails = ({ details, expType }) => {
+    try {
+        if (!details)
+            return ("");
+        if (details.length === 0)
+            return ("");
+        switch (expType) {
+            case 1: //Premium Membership application
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Appl. No.</th>
+                                    <th>Inst. Name</th>
+                                    <th>Category</th>
+                                    <th>Estd. Date</th>
+                                    <th>University</th>
+                                    <th>Address</th>
+                                    <th>Principal Name</th>
+                                    <th>Principal Email</th>
+                                    <th>Principal Phone</th>
+                                    <th>POC Name</th>
+                                    <th>POC Email</th>
+                                    <th>POC Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map(item => {
+                                        return (
+                                            <tr key={item["Appl No"]}>
+                                                <td>{item["Appl No"]}</td>
+                                                <td>{item["Inst Name"]}</td>
+                                                <td>{item["Category"]}</td>
+                                                <td>{item["Est Date"]}</td>
+                                                <td>{item["University"]}</td>
+                                                <td>{item["Address"]}</td>
+                                                <td>{item["Princ Name"]}</td>
+                                                <td>{item["Princ Email"]}</td>
+                                                <td>{item["Princ Phone"]}</td>
+                                                <td>{item["POC Name"]}</td>
+                                                <td>{item["POC Email"]}</td>
+                                                <td>{item["POC Phone"]}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+            case 2: //Corporate Membership application
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Name of organisation</th>
+                                    <th>Address</th>
+                                    <th>Website</th>
+                                    <th>Head of Org.</th>
+                                    <th>Nature of org.</th>
+                                    <th>Type of company</th>
+                                    <th>Corporate ID</th>
+                                    <th>GSTN</th>
+                                    <th>Date of incorp</th>
+                                    <th>POC Name</th>
+                                    <th>POC Email</th>
+                                    <th>POC Phone</th>
+                                    <th>Tech skills used</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{item["Org Name"]}</td>
+                                                <td>{item["Address"]}</td>
+                                                <td>{item["Website"]}</td>
+                                                <td>{item["Org Head"]}</td>
+                                                <td>{item["Nature of org"]}</td>
+                                                <td>{item["Type of company"]}</td>
+                                                <td>{item["Corporate ID"]}</td>
+                                                <td>{item["GSTN"]}</td>
+                                                <td>{item["Date of incorp"]}</td>
+                                                <td>{item["POC Name"]}</td>
+                                                <td>{item["POC Email"]}</td>
+                                                <td>{item["POC Phone"]}</td>
+                                                <td>{item["Tech skills used"]}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+            case 3: //Partnership application
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email ID</th>
+                                    <th>Phone</th>
+                                    <th>Estd Date</th>
+                                    <th>Address</th>
+                                    <th>District</th>
+                                    <th>Office Space</th>
+                                    <th>No. of employees</th>
+                                    <th>Brief Report</th>
+                                    <th>Expectation from partnership</th>
+                                    <th>Promoter profile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{item["Full Name"]}</td>
+                                                <td>{item["Email ID"]}</td>
+                                                <td>{item["Phone"]}</td>
+                                                <td>{item["Est Date"]}</td>
+                                                <td>{item["Address"]}</td>
+                                                <td>{item["District"]}</td>
+                                                <td>{item["Office Space in Sq m"]}</td>
+                                                <td>{item["No of employees"]}</td>
+                                                <td>{item["Brief Report"]}</td>
+                                                <td>{item["Expectation from partnership"]}</td>
+                                                <td>{item["Promoter profile"]}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+            case 4: //Contact us messages
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email ID</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{item.name}</td>
+                                                <td>{item.email}</td>
+                                                <td>{item.message}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+            default:
+                return ("");
+       
+        }
+    } catch (error) {
+        return ("");
+    }
+}
 
 export default DateRange;
