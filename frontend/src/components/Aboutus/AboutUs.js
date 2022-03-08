@@ -6,6 +6,8 @@ import main from '../../assets/images/ict.png';
 import './about.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import chairman from '../../assets/images/chairman.webp';
+import chief from '../../assets/images/chief.webp';
 export const AboutUs = () => {
   return (
     <div>
@@ -28,7 +30,7 @@ export const AboutUs = () => {
 <Text padding={2} textAlign='left' fontFamily='sans-serif' fontWeight='extrabold' fontSize='xx-large'>Our Key Focus Areas</Text>
 
 <div class="section_our_solution">
-  <div class="rows">
+  <div>
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="our_solution_category">
         <div class="solution_cards_box">
@@ -270,6 +272,45 @@ Constant Update of Technologies</h3>
   </div>
 </div>
 </Box>
+        </Box>
+        <Box>
+        <div>
+
+  
+
+
+
+<div classname="team" style={{backgroundColor:'bisque'}} >
+ <Text fontFamily='sans-serif' fontWeight='extrabold' fontSize='xx-large'>Our Team</Text>
+      <div  style={{display:'flex', marginTop:'20px', marginBottom:'20px'}}>
+    <div className="teamcard" style={{backgroundColor:'beige'}}>
+    
+        <div className="front">
+          <img className="profile" width="100%" src={chairman} alt="ICT"/>
+          
+        </div>
+        
+
+    </div>
+
+    <div className="teamcard" style={{backgroundColor:'beige'}} >
+    
+    <div className="front">
+      <img className="profile2" width="100%" src={chief} alt="ICT"/>
+      <h2 style={{fontWeight:'bolder', fontSize:'large'}}>CHIEF EXECUTIVE OFFICER</h2>
+     
+    </div>
+    
+
+    
+
+</div>
+  </div>
+
+
+ 
+    </div>
+  </div>
         </Box>
         <Footer/>
     </div>
