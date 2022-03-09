@@ -1,14 +1,16 @@
 .login-container{
     padding: 20px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    font-family: 'Poppins',sans-serif;
+    background:rgb(29, 36, 100);
     position: absolute;
     top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Poppins',sans-serif;
-    background:lightgray;
+    border-radius: 10px;
+    box-shadow: #333 0px 5px 10px ;
+   
 }
 
 .login-container .close-btn{
@@ -21,7 +23,8 @@
 .login-container .close-btn:hover{
     color: rebeccapurple;
 }
-.login-container h1{
+.login-container h1,
+.login-container h2{
     text-align: center;
     color:white;
     text-transform: uppercase;
@@ -31,7 +34,7 @@
     text-align: left;
 }
 .login-container label{
-    color: black;
+    color: white;
     font-size: 18px;
     margin-top: 10px;
 }
@@ -40,23 +43,38 @@
     background: transparent;
     border: none;
     outline: none;
-    border-bottom: 1px solid burlywood;
+    border-bottom: 1px solid white;
     padding: 10px;
-    color: black;
+    color: white;
     transition: all 2s ease;
 }
-.login-container input:hover{
-    border-bottom: 1px solid red;
+.login-container input:focus{
+    border-bottom: 1px solid rgb(6, 6, 39);
+    
 }
 .loginbutton{
     display: block;
     width: 95%;
     padding: 8px;
-    border: none;
-    outline: none;
-    background: linear-gradient(to right, #cbb4d4, #20002c);
+    border:white 1px solid;
     color: white;
     font-size: 18px;
     cursor: pointer;
     margin-top: 20px;
+    transition: all 1s ease-in;
+}
+
+.loginbutton:hover{
+    background-color: darkslateblue;
+}
+
+.login-header{
+    background-color: darkslateblue;
+    padding: 4px;
+    margin-top: -50px;
+    border-radius: 10px;
+    background-image: url(../../assets/images/logo.png);
+    background-position:left top ;
+    background-size: 3em;
+    background-repeat: no-repeat;
 }

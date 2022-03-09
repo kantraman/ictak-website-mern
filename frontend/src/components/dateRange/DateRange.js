@@ -4,6 +4,7 @@ import useToken from '../Admin/useToken';
 import Topbar from '../Dashboard/topbar/Topbar';
 import Sidebar from '../Dashboard/sidebar/Sidebar';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import Logout from '../Admin/logout';
 
 const DateRange = (props) => {
     const expType = props.type;
@@ -121,7 +122,10 @@ const DateRange = (props) => {
                     'x-access-token': token
                 }
             });
-            
+            if (response.status === 401) {
+                Logout();
+                return 0;
+            }
             if (response.headers.get('Content-Type') ===
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
                 const blob = await response.blob();
@@ -174,6 +178,10 @@ const DateRange = (props) => {
                     'x-access-token': token
                 }
             });
+            if (response.status === 401) {
+                Logout();
+                return 0;
+            }
             const body = await response.json();
             if (body.status !== "Error") {
                 setDetails(body);

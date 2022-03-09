@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom'
 import './login.css';
 
+
 function Login(props) {
     const [username, setUserame] = useState("");
     const [password, setPassword] = useState("");
@@ -43,8 +44,10 @@ function Login(props) {
     return (
         <>
             <div className='login-container'>
-                <h1 className="fs-1">WElCOME</h1>
-                <h2 className="fs-4">ENTER LOGIN CREDENTIALS</h2>
+                <div className="login-header">
+                    <h1 className="fs-1">ICTAK ADMIN</h1>
+                    <h2 className="fs-4">ENTER LOGIN CREDENTIALS</h2>
+                </div>
                 <form className="">
                     <label >Username</label>
                     <br></br>

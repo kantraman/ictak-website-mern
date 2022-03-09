@@ -2,7 +2,8 @@ import React from 'react';
 import './sidebar.css';
 import {Dashboard, Message, InsertEmoticon, AssignmentInd, HorizontalSplit, Done,FiberManualRecordOutlined, MenuBookRounded , InsertDriveFile} from '@material-ui/icons';
 import { Button } from '@material-ui/core';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Logout from '../../Admin/logout.js'
 function Sidebar(props) {
     return (
         <div className="sidebar">
@@ -60,9 +61,8 @@ function Sidebar(props) {
                         </li></Link>
 
                 </ul>
-                <Link to="/" className="Sidebarlink">
-                    <Button variant="contained" className="sidebarMenu" onClick={()=>localStorage.clear()}><h3 className='sidebarTitle'>LOGOUT</h3></Button>
-                </Link>
+                <Button variant="contained" className="sidebarMenu" onClick={() => Logout()}><h3 className='sidebarTitle'>LOGOUT</h3></Button>
+                
             </div>
         </div>
     );
