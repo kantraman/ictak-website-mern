@@ -24,29 +24,31 @@ const DateRange = (props) => {
     const handleShow = () => setShow(true);
     //Set Title
     useEffect(() => {
-        let frmTitle = ""
+        let frmTitle = title;
         switch (expType) {
             case 1: //Premium Membership application
-                frmTitle = "Premium Membership application - ";
+                frmTitle = "Premium Membership Application - ";
                 break;
             case 2: //Corporate Membership application
-                frmTitle = "Corporate Membership application - ";
+                frmTitle = "Corporate Membership Application - ";
                 break;
             case 3: //Partnership application
-                frmTitle = "Partnership application - ";
+                frmTitle = "Partnership Application - ";
                 break;
             case 4: //Contact us messages
-                frmTitle = "Contact us messages - ";
+                frmTitle = "Contact us Messages - ";
                 break;
             default:
                 frmTitle = "";
                 break;
         }
-        setTitle(frmTitle);
-        setDetails([]);
-        setErrorValues({});
-        setPostValues(initValues);
-        handleClose();
+        if (frmTitle !== title) {
+            setTitle(frmTitle);
+            setDetails([]);
+            setErrorValues({});
+            setPostValues(initValues);
+            handleClose();
+        }
     }, [expType])
 
     //Input values to postValues
@@ -59,26 +61,27 @@ const DateRange = (props) => {
         let fromDate = postValues.fromDate;
         let toDate = postValues.toDate;
         let isValid = true;
+        let validationErrors = {};
 
         if (!postValues.fromDate)
-            errorValues.fromDate = "From date is required";
+            validationErrors.fromDate = "From date is required";
         if (!postValues.toDate)
-            errorValues.toDate = "To date is required";
+            validationErrors.toDate = "To date is required";
         if (isNaN(new Date(fromDate).getTime())) {
             isValid = false;
-            errorValues.fromDate = "Invalid from Date";
+            validationErrors.fromDate = "Invalid from Date";
         }
         if (isNaN(new Date(toDate).getTime())) {
             isValid = false;
-            errorValues.toDate = "Invalid to Date";
+            validationErrors.toDate = "Invalid to Date";
         }
         if (isValid) {
-            if (new Date(fromDate).getMilliseconds() > new Date(toDate).getMilliseconds()) {
-                errorValues.fromDate = "From date cannot be greater than to date";
+            if (new Date(fromDate) > new Date(toDate)) {
+                validationErrors.fromDate = "From date cannot be greater than to date";
             }
         }
         
-        return errorValues;
+        return validationErrors;
     }
     //Manage form submit
     const handleSubmit = (event) => {
@@ -199,10 +202,11 @@ const DateRange = (props) => {
     return (
         <div>
             <Topbar />
-            <Button variant="primary" onClick={handleShow} className='d-flex align-items-center ml-4'>
-                <HamburgerIcon /> Navigation
-            </Button>
-
+            <div className="d-grid">
+                <Button variant="primary" onClick={handleShow} className='d-flex align-items-center ml-4'>
+                    <HamburgerIcon /> Navigation
+                </Button>
+            </div>
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Navigation</Offcanvas.Title>
@@ -226,10 +230,11 @@ const DateRange = (props) => {
                    
                 <Button type="button" onClick={getDetails}>View</Button> &emsp;
                 <Button type="submit">Export</Button><br /><br />
-                <div style={{ overflow: "auto", "white-space": 'nowrap' }}>
+                <div style={{ overflow: "auto", "whiteSpace": 'nowrap' }}>
                     <ShowDetails details={details} expType={expType} />
                 </div>
             </Form>
+            <div className="p-5"></div>
         </div>
     );
 }

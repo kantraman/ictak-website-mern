@@ -80,7 +80,7 @@ function App() {
             <Route path="/export-corporate" element={<DateRange type={2} />} />
             <Route path="/export-partnership" element={<DateRange type={3} />} />
             <Route path="/export-messages" element={<DateRange type={4} />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
