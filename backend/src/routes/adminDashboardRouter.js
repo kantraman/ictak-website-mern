@@ -4,7 +4,7 @@ const auth = require("../helpers/auth");
 const { getStatsforGraph } = require("../controller/dashboardController");
 
 //Get details for doughnut graph
-dashboardRouter.get("/graph", async (req, res) => {
+dashboardRouter.get("/graph", auth, async (req, res) => {
     getStatsforGraph(req, res);
 })
 
