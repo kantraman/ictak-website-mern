@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
 import {
   Container,
   SimpleGrid,
@@ -15,6 +15,11 @@ import {
   Icon,
   useColorModeValue,
   MenuItem,
+  Box,
+  Button,
+  HStack,
+  VStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import {
   IoAnalyticsSharp,
@@ -22,6 +27,7 @@ import {
   IoSearchSharp,
 } from "react-icons/io5";
 import { ReactElement } from "react";
+import { CheckIcon } from "@chakra-ui/icons";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -40,6 +46,44 @@ const Feature = ({ text, icon, iconBg }) => {
     </Stack>
   );
 };
+
+const Feature1 = ({ title, text, icon }) => {
+  return (
+    <Stack>
+      <Flex
+        w={16}
+        h={16}
+        align={"center"}
+        justify={"center"}
+        color={"white"}
+        rounded={"full"}
+        bg={"gray.100"}
+        mb={1}
+      >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{title}</Text>
+      <Text color={"gray.600"}>{text}</Text>
+    </Stack>
+  );
+};
+
+const features = [
+  { title: "ACCESS TO LINKEDIN LEARNING WITH 14,000 COURSES" },
+  { title: "125 HRS VIRTUAL INTERNSHIP WITH TCS ION" },
+  { title: "1100% PLACEMENT ASSISTANCE GUARANTEE*" },
+  { title: "AVAILABILITY OF BADGES FROM AWS" },
+  {
+    title:
+      "INTERNATIONAL READINESS PROGARM INCLUDES IELTS, CROSS-CULTURE TRAINING",
+  },
+  { title: "INDUSTRY GRADE CERTIFICATION" },
+  {
+    title:
+      "INTERNATIONAL READINESS PROGARM INCLUDES IELTS, CROSS-CULTURE TRAINING",
+  },
+  { title: "TRAINING METHODOLOGY USING PERL MODEL" },
+];
 
 function SingleCourse({ match, history }) {
   const [title, setTitle] = useState();
@@ -116,7 +160,6 @@ function SingleCourse({ match, history }) {
           </Stack>
         </VStack>
       </Flex>
-
       <Container maxW={"5xl"} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
@@ -173,6 +216,60 @@ function SingleCourse({ match, history }) {
           </Flex>
         </SimpleGrid>
       </Container>
+      <Box p={4}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+          <Feature
+            icon={<Icon as={FcAssistant} w={10} h={10} />}
+            title={"Lifetime Support"}
+            text={
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            }
+          />
+          <Feature
+            icon={<Icon as={FcDonate} w={10} h={10} />}
+            title={"Unlimited Donations"}
+            text={
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            }
+          />
+          <Feature
+            icon={<Icon as={FcInTransit} w={10} h={10} />}
+            title={"Instant Delivery"}
+            text={
+              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            }
+          />
+        </SimpleGrid>
+      </Box>
+      <Flex
+        w={"full"}
+        h={"100vh"}
+        backgroundImage={"url()"}
+        backgroundSize={"cover"}
+        backgroundPosition={"center center"}
+      >
+        <Box p={4}>
+          <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
+            <Heading fontSize={"3xl"}>COURSE HIGHLIGHTS</Heading>
+          </Stack>
+
+          <Container maxW={"6xl"} mt={10}>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
+              {features.map((feature) => (
+                <HStack key={feature.id} align={"top"}>
+                  <Box color={"Red.1000"} px={2}>
+                    <Icon as={CheckIcon} color="green" />
+                  </Box>
+                  <VStack align={"start"}>
+                    <Text fontWeight={600}>{feature.title}</Text>
+                  </VStack>
+                </HStack>
+              ))}
+            </SimpleGrid>
+          </Container>
+        </Box>
+      </Flex>
+      ;
     </div>
   );
 }
