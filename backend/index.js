@@ -15,6 +15,8 @@ const partnerRouter = require("./src/routes/partnershipRouter");
 const memberRouter = require("./src/routes/membershipRouter");
 const contactUsRouter = require("./src/routes/contactUsRouter");
 const dashboardRouter = require("./src/routes/adminDashboardRouter");
+const contactUsRouter = require("./src/routes/contactUsRouter");
+const courceRegisterRouter = require("./src/routes/courseRegisterRouter");
 
 dotenv.config();
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +29,8 @@ app.use("/api/cource",courceRoutes);
 app.use("/api/membership", memberRouter);
 app.use("/api/contact", contactUsRouter);
 app.use("/api/dashboard", dashboardRouter);
+app.use("/api/contact", contactUsRouter);
+app.use("/api/register", courceRegisterRouter);
 
 // app.use(express.static(path.resolve(__dirname, "./client")));
 // app.get("*", (req, res) => {
@@ -43,14 +47,7 @@ app.use((err, req, res, next) => {
     })
   })
   
-// app.get("/api/cource", (req, res) => {
-//   res.json(cource);
-// });
-// app.get("/api/cource/:id", (req, res) => {
-//   const cource = cource.find((n) => n._id === req.params.id);
-//   res.json(cource);
-// });
- 
+
 
 mongoose.connect(process.env.DBConnectionString, {
     useNewUrlParser: true,

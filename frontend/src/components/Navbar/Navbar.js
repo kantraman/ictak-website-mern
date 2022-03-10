@@ -29,11 +29,19 @@ import {
   MenuDivider,
 } from '@chakra-ui/react'
 import { HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import Login from '../Admin/Login';
+import { useDispatch, useSelector } from "react-redux";
+import { listCource } from "../../actions/courceActions";
 
 function Navbar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
+  const dispatch = useDispatch();
+  const courceList = useSelector((state) => state.courceList);
+  const { loading, cource, error } = courceList;
+
+  useEffect(() => {
+    dispatch(listCource());
+  }, [dispatch]);
   
   return (
     <Flex
@@ -88,13 +96,11 @@ function Navbar(props) {
             Courses
           </MenuButton>
           <MenuList>
-            <Link href='/cource/:id'> <MenuItem color='black'>Certified Specialist in Full Stack Development</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Certified Specialist in Data Science and Analytics</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Cyber Security Analyst</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Robotic Process Automation</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Testing</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Digital Marketing</MenuItem></Link>
-            <Link href='/cource/:id'> <MenuItem color='black'>Other Courses</MenuItem></Link>
+            {cource?.map((cource) => (
+              <MenuItem key={cource._id} color="black">
+                <a href={`/singlecourse/${cource._id}`}>{cource.title}</a>
+              </MenuItem>
+            ))}
     
           </MenuList>
         </Menu>
