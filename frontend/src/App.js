@@ -46,9 +46,14 @@ function App() {
               <Route path="/academic-member-apply" element={<PremiumMember />} />
               <Route path="/corporate-member-apply" element={<CorporateMember />} />
               <Route path="/techathlon" element={<Techathlon />} />
-			  <Route path="/icset" element={<Icset />} />
+              <Route path="/icset" element={<Icset />} />
               <Route path="/partnership" element={<Partnership />} />
               <Route path="/login" element={<Login setToken={setToken} />} />
+              <Route path="/export-academic" element={<Login setToken={setToken} />} />
+              <Route path="/export-corporate" element={<Login setToken={setToken} />} />
+              <Route path="/export-partnership" element={<Login setToken={setToken} />} />
+              <Route path="/export-messages" element={<Login setToken={setToken} />} />
+              <Route path="/dashboard" element={<Login setToken={setToken} />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </main>
@@ -74,7 +79,7 @@ function App() {
             <Route path="/academic-member-apply" element={<PremiumMember />} />
             <Route path="/corporate-member-apply" element={<CorporateMember />} />
             <Route path="/techathlon" element={<Techathlon />} />
-			<Route path="/icset" element={<Icset />} />
+			      <Route path="/icset" element={<Icset />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/export-academic" element={<DateRange type={1} />} />
             <Route path="/export-corporate" element={<DateRange type={2} />} />
