@@ -14,6 +14,7 @@ const userAccountsRouter = require("./src/routes/userAccountsRouter");
 const partnerRouter = require("./src/routes/partnershipRouter");
 const memberRouter = require("./src/routes/membershipRouter");
 const contactUsRouter = require("./src/routes/contactUsRouter");
+const dashboardRouter = require("./src/routes/adminDashboardRouter");
 
 dotenv.config();
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +26,7 @@ app.use("/api/partnership", partnerRouter);
 app.use("/api/cource",courceRoutes);
 app.use("/api/membership", memberRouter);
 app.use("/api/contact", contactUsRouter);
+app.use("/api/dashboard", dashboardRouter);
 
 // app.use(express.static(path.resolve(__dirname, "./client")));
 // app.get("*", (req, res) => {
