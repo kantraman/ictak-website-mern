@@ -23,7 +23,10 @@ import Dashboard from './components/Dashboard/dashboard/Dashboard';
 import ErrorPage from './components/errorPage/ErrorPage';
 import useToken from './components/Admin/useToken';
 import { Mainpage } from "./components/Mainpage";
-import Icset from './components/eventicset/Icset'
+import Icset from './components/eventicset/Icset';
+import Testimonial from './components/Dashboard/testimonialpage/TestimonialPage';
+import KnowledgePage from './components/Dashboard/knowledgepage/KnowledgePage';
+import Industry from './components/Dashboard/IndustrialPage/IndustrialPage';
 
 function App() {
   const { token, setToken } = useToken();
@@ -54,6 +57,9 @@ function App() {
               <Route path="/export-partnership" element={<Login setToken={setToken} />} />
               <Route path="/export-messages" element={<Login setToken={setToken} />} />
               <Route path="/dashboard" element={<Login setToken={setToken} />} />
+              <Route path="/testimonials" element={<Login setToken={setToken} />} />
+              <Route path="/knowledge-partner" element={<Login setToken={setToken} />} />
+              <Route path="/industrial-partner" element={<Login setToken={setToken} />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </main>
@@ -79,7 +85,7 @@ function App() {
             <Route path="/academic-member-apply" element={<PremiumMember />} />
             <Route path="/corporate-member-apply" element={<CorporateMember />} />
             <Route path="/techathlon" element={<Techathlon />} />
-			      <Route path="/icset" element={<Icset />} />
+            <Route path="/icset" element={<Icset />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/export-academic" element={<DateRange type={1} />} />
             <Route path="/export-corporate" element={<DateRange type={2} />} />
@@ -87,6 +93,9 @@ function App() {
             <Route path="/export-messages" element={<DateRange type={4} />} />
             <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/testimonials" element={<Testimonial />} />
+            <Route path="/knowledge-partner" element={<KnowledgePage />} />
+            <Route path="/industrial-partner" element={<Industry />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>

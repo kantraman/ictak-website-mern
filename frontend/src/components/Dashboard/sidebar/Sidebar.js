@@ -19,12 +19,12 @@ function Sidebar(props) {
                             <HorizontalSplit />
                             Courses
                         </li></Link>
-                    <Link to="/dashboard" className="Sidebarlink">
+                    <Link to="/testimonials" className="Sidebarlink">
                         <li className='sidebarListItem'>
                             <InsertDriveFile />
                             Testimonials
                         </li></Link>
-                    <Link to="/dashboard" className="Sidebarlink">
+                    <Link to="/cources" className="Sidebarlink">
                         <li className='sidebarListItem'>
                             <Done />
                             Course Registration
@@ -44,12 +44,12 @@ function Sidebar(props) {
                             <InsertEmoticon />
                             Partnership
                         </li></Link>
-                    <Link to="/dashboard" className="Sidebarlink">
+                    <Link to="/industrial-partner" className="Sidebarlink">
                         <li className='sidebarListItem'>
                             <FiberManualRecordOutlined />
                             Industries
                         </li></Link>
-                    <Link to="/dashboard" className="Sidebarlink">
+                    <Link to="/knowledge-partner" className="Sidebarlink">
                         <li className='sidebarListItem'>
                             <MenuBookRounded />
                             Knowledge

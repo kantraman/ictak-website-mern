@@ -1,0 +1,8 @@
+.knowledgegpage{
+    flex: 4;
+
+}
+.knowledgetable{
+    display: flex;
+    height: 80%;
+}
