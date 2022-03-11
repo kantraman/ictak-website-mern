@@ -63,7 +63,7 @@ const Cources = () => {
                   >
                     {cource.title}
                   </span>
-                  <Card.Text>
+                  <Card.Text className="cardtext">
                     <span
                       style={{
                         color: "black",
@@ -94,7 +94,7 @@ const Cources = () => {
                     Delete
                   </Button>
                   <div style={{ marginBottom: "20px" ,marginTop:"20px" , marginLeft:"10px"}}>
-                    <Button href="/registerScreen">Register Here</Button>
+                    <Button href="/registerScreen">Apply Now</Button>
                   </div>
                 </div>
               </Card>

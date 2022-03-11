@@ -53,23 +53,27 @@ function Navbar(props) {
       padding={2}
       bg="grey"
       color="white"
-     
-     
-
       {...props}
     >
       <Flex align="center" mr={5}>
         {/* <Heading as="h1" size="lg" letterSpacing={"tighter"}>
           Chakra UI
         </Heading> */}
-        <Link href='/'><Image boxSize='50px'
-          objectFit='cover'
-          src={Logo}
-          alt='Dan Abramov'
-        /></Link>
+        <Link href="/">
+          <Image
+            boxSize="50px"
+            objectFit="cover"
+            src={Logo}
+            alt="Dan Abramov"
+          />
+        </Link>
       </Flex>
 
-      < Box display={{ base: "block", md: "none" }} marginLeft='10%' onClick={handleToggle}>
+      <Box
+        display={{ base: "block", md: "none" }}
+        marginLeft="10%"
+        onClick={handleToggle}
+      >
         <HamburgerIcon />
       </Box>
 
@@ -80,91 +84,107 @@ function Navbar(props) {
         alignItems="center"
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
-        marginLeft='5%'
+        marginLeft="5%"
       >
         <Menu>
-          <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton color="black" as={Button} rightIcon={<ChevronDownIcon />}>
             Home
           </MenuButton>
           <MenuList>
-            <Link href='/aboutus'><MenuItem color='black'>About Us</MenuItem></Link>
-    
+            <Link href="/aboutus">
+              <MenuItem color="black">About Us</MenuItem>
+            </Link>
           </MenuList>
         </Menu>
         <Menu>
-          <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton color="black" as={Button} rightIcon={<ChevronDownIcon />}>
             Courses
           </MenuButton>
           <MenuList>
+            <MenuItem color="black">
+              <a href={`/cources`}>All Courses</a>
+            </MenuItem>
             {cource?.map((cource) => (
               <MenuItem key={cource._id} color="black">
                 <a href={`/singlecourse/${cource._id}`}>{cource.title}</a>
               </MenuItem>
             ))}
-    
           </MenuList>
         </Menu>
 
         <Menu>
-          <Link href='/partnership'> <MenuButton color='black' as={Button} >
-            Partnership
-          </MenuButton></Link>
-  
+          <Link href="/partnership">
+            {" "}
+            <MenuButton color="black" as={Button}>
+              Partnership
+            </MenuButton>
+          </Link>
         </Menu>
         <Menu>
-          <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton color="black" as={Button} rightIcon={<ChevronDownIcon />}>
             Membership
           </MenuButton>
           <MenuList>
-            <Link href='/academic-member'><MenuItem color='black'>Academic Membership</MenuItem></Link>
-            <Link href='/corporate-member'><MenuItem color='black'>Corporate Membership</MenuItem></Link>
+            <Link href="/academic-member">
+              <MenuItem color="black">Academic Membership</MenuItem>
+            </Link>
+            <Link href="/corporate-member">
+              <MenuItem color="black">Corporate Membership</MenuItem>
+            </Link>
           </MenuList>
         </Menu>
         <Menu>
-          <MenuButton color='black' as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton color="black" as={Button} rightIcon={<ChevronDownIcon />}>
             Events
           </MenuButton>
           <MenuList>
-            <Link href='/techathlon'><MenuItem color='black'>Techathlon</MenuItem></Link>
-            <Link href='/Icset'><MenuItem color='black'>Icset</MenuItem></Link>
+            <Link href="/techathlon">
+              <MenuItem color="black">Techathlon</MenuItem>
+            </Link>
+            <Link href="/Icset">
+              <MenuItem color="black">Icset</MenuItem>
+            </Link>
           </MenuList>
         </Menu>
         <Menu>
-          <Link href='https://retail.ictkerala.org/' target='_blank'>
-            <MenuButton color='black' as={Button} >
+          <Link href="https://retail.ictkerala.org/" target="_blank">
+            <MenuButton color="black" as={Button}>
               Paatshala
-            </MenuButton></Link>
-  
-        </Menu>
-        <Menu>
-          <Link textDecor='none' href="/Contact"><MenuButton color='black' as={Button}   >
-            Contact Us
-          </MenuButton></Link>
-  
-
-        </Menu>
-        <Menu>
-          <Link href='https://ictkerala.zohorecruit.com/jobs/Careers' target='_blank'><MenuButton color='black' as={Button} >
-            Careers
-          </MenuButton></Link>
-
-  
-        </Menu>
-        <Menu>
-        <Link href='/login' target='_blank'>
-          <MenuButton backgroundColor='blue.400' color='black' as={Button} border='1px'>
-            Login
-            <BiLogInCircle />
-          </MenuButton>
+            </MenuButton>
           </Link>
         </Menu>
-        
-        
+        <Menu>
+          <Link textDecor="none" href="/Contact">
+            <MenuButton color="black" as={Button}>
+              Contact Us
+            </MenuButton>
+          </Link>
+        </Menu>
+        <Menu>
+          <Link
+            href="https://ictkerala.zohorecruit.com/jobs/Careers"
+            target="_blank"
+          >
+            <MenuButton color="black" as={Button}>
+              Careers
+            </MenuButton>
+          </Link>
+        </Menu>
+        <Menu>
+          <Link href="/login" target="_blank">
+            <MenuButton
+              backgroundColor="blue.400"
+              color="black"
+              as={Button}
+              border="1px"
+            >
+              Login
+              <BiLogInCircle />
+            </MenuButton>
+          </Link>
+        </Menu>
       </Stack>
-
-      
     </Flex>
-    
   );
 };
 export default Navbar;

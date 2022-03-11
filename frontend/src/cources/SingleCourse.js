@@ -29,7 +29,7 @@ import {
 import { ReactElement } from "react";
 import { CheckIcon } from "@chakra-ui/icons";
 
-const Feature = ({ text, icon, iconBg }) => {
+const Feature = ({ text, icon, iconBg, title }) => {
   return (
     <Stack direction={"row"} align={"center"}>
       <Flex
@@ -42,28 +42,9 @@ const Feature = ({ text, icon, iconBg }) => {
       >
         {icon}
       </Flex>
-      <Text fontWeight={600}>{text}</Text>
-    </Stack>
-  );
-};
-
-const Feature1 = ({ title, text, icon }) => {
-  return (
-    <Stack>
-      <Flex
-        w={16}
-        h={16}
-        align={"center"}
-        justify={"center"}
-        color={"white"}
-        rounded={"full"}
-        bg={"gray.100"}
-        mb={1}
-      >
-        {icon}
-      </Flex>
       <Text fontWeight={600}>{title}</Text>
-      <Text color={"gray.600"}>{text}</Text>
+
+      <Text fontWeight={600}>{text}</Text>
     </Stack>
   );
 };
@@ -71,7 +52,7 @@ const Feature1 = ({ title, text, icon }) => {
 const features = [
   { title: "ACCESS TO LINKEDIN LEARNING WITH 14,000 COURSES" },
   { title: "125 HRS VIRTUAL INTERNSHIP WITH TCS ION" },
-  { title: "1100% PLACEMENT ASSISTANCE GUARANTEE*" },
+  { title: "100% PLACEMENT ASSISTANCE GUARANTEE*" },
   { title: "AVAILABILITY OF BADGES FROM AWS" },
   {
     title:
@@ -216,31 +197,32 @@ function SingleCourse({ match, history }) {
           </Flex>
         </SimpleGrid>
       </Container>
-      <Box p={4}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-          <Feature
-            icon={<Icon as={FcAssistant} w={10} h={10} />}
-            title={"Lifetime Support"}
-            text={
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-            }
-          />
-          <Feature
-            icon={<Icon as={FcDonate} w={10} h={10} />}
-            title={"Unlimited Donations"}
-            text={
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-            }
-          />
-          <Feature
-            icon={<Icon as={FcInTransit} w={10} h={10} />}
-            title={"Instant Delivery"}
-            text={
-              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
-            }
-          />
-        </SimpleGrid>
-      </Box>
+      <Flex
+        w={"full"}
+        h={"100vh"}
+        backgroundImage={
+          "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Ka5avkYJ0VNRQx426LKmYxoyWetts_D21w&usqp=CAU)"
+        }
+        backgroundSize={"cover"}
+        backgroundPosition={"center center"}
+      >
+        <Box p={4}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            <Feature
+              icon={<Icon as={FcAssistant} w={10} h={10} />}
+              title={"Lifetime Support"}
+            />
+            <Feature
+              icon={<Icon as={FcDonate} w={10} h={10} />}
+              title={"Unlimited Donations"}
+            />
+            <Feature
+              icon={<Icon as={FcInTransit} w={10} h={10} />}
+              title={"Instant Delivery"}
+            />
+          </SimpleGrid>
+        </Box>
+      </Flex>
       <Flex
         w={"full"}
         h={"100vh"}
