@@ -39,6 +39,9 @@ const DateRange = (props) => {
             case 4: //Contact us messages
                 frmTitle = "Contact us Messages - ";
                 break;
+            case 5: //Course reg. application
+                frmTitle = "Course Registration - ";
+                break;
             default:
                 frmTitle = "";
                 break;
@@ -110,6 +113,9 @@ const DateRange = (props) => {
             case 4: //Contact us messages
                 getEP = "api/contact/export-msg";
                 break;
+            case 5: //Course reg. applications
+                getEP = "api/dashboard/export-student-appl";
+                break;
             default:
                 getEP = "api/membership/export-academic";
                 break;
@@ -165,6 +171,9 @@ const DateRange = (props) => {
                 break;
             case 4: //Contact us messages
                 getEP = "api/contact/messages";
+                break;
+            case 5: //Course reg. applications
+                getEP = "api/dashboard/view-student-appl";
                 break;
             default:
                 getEP = "api/membership/export-academic";
@@ -408,6 +417,37 @@ const ShowDetails = ({ details, expType }) => {
                                                 <td>{item.name}</td>
                                                 <td>{item.email}</td>
                                                 <td>{item.message}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+                case 5: //Course Reg. Apllications
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email ID</th>
+                                    <th>Mobile No.</th>
+                                    <th>Date of Birth</th>
+                                    <th>Course Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{item.name}</td>
+                                                <td>{item["Email ID"]}</td>
+                                                <td>{item["Mobile No"]}</td>
+                                                <td>{item["Date of Birth"]}</td>
+                                                <td>{item["Course Name"]}</td>
                                             </tr>
                                         );
                                     })

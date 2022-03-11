@@ -56,6 +56,7 @@ function App() {
               <Route path="/export-corporate" element={<Login setToken={setToken} />} />
               <Route path="/export-partnership" element={<Login setToken={setToken} />} />
               <Route path="/export-messages" element={<Login setToken={setToken} />} />
+              <Route path="/export-applications" element={<Login setToken={setToken} />} />
               <Route path="/dashboard" element={<Login setToken={setToken} />} />
               <Route path="/testimonials" element={<Login setToken={setToken} />} />
               <Route path="/knowledge-partner" element={<Login setToken={setToken} />} />
@@ -91,6 +92,7 @@ function App() {
             <Route path="/export-corporate" element={<DateRange type={2} />} />
             <Route path="/export-partnership" element={<DateRange type={3} />} />
             <Route path="/export-messages" element={<DateRange type={4} />} />
+            <Route path="/export-applications" element={<DateRange type={5} />} />
             <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/testimonials" element={<Testimonial />} />

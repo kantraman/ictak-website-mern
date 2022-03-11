@@ -24,7 +24,7 @@ function Sidebar(props) {
                             <InsertDriveFile />
                             Testimonials
                         </li></Link>
-                    <Link to="/cources" className="Sidebarlink">
+                    <Link to="/export-applications" className="Sidebarlink">
                         <li className='sidebarListItem'>
                             <Done />
                             Course Registration
