@@ -197,36 +197,13 @@ function SingleCourse({ match, history }) {
           </Flex>
         </SimpleGrid>
       </Container>
+      
       <Flex
         w={"full"}
         h={"100vh"}
         backgroundImage={
           "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1Ka5avkYJ0VNRQx426LKmYxoyWetts_D21w&usqp=CAU)"
         }
-        backgroundSize={"cover"}
-        backgroundPosition={"center center"}
-      >
-        <Box p={4}>
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-            <Feature
-              icon={<Icon as={FcAssistant} w={10} h={10} />}
-              title={"Lifetime Support"}
-            />
-            <Feature
-              icon={<Icon as={FcDonate} w={10} h={10} />}
-              title={"Unlimited Donations"}
-            />
-            <Feature
-              icon={<Icon as={FcInTransit} w={10} h={10} />}
-              title={"Instant Delivery"}
-            />
-          </SimpleGrid>
-        </Box>
-      </Flex>
-      <Flex
-        w={"full"}
-        h={"100vh"}
-        backgroundImage={"url()"}
         backgroundSize={"cover"}
         backgroundPosition={"center center"}
       >

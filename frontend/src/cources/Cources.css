@@ -5,12 +5,12 @@
 .card:hover{
     box-shadow: 5px 10px 20px 1px  rgba(0, 0, 0,0.253)!important;
 }
-.card-img-top{
+.cardImg{
     transform: scale(1);
     transition: transform 0.5s ease;
 }
 
-.card-img-top:hover{
+.cardImg:hover{
     transform: scale(1.2);
 }
 .cardtext {
