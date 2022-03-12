@@ -1,0 +1,7 @@
+.testpage{
+    flex: 4;
+}
+.testtable{
+    display: flex;
+    height: 88%;
+}

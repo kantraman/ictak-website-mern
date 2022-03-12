@@ -1,0 +1,35 @@
+.CoursesTable{
+    flex: 4;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+
+
+}
+.CourseListUser {
+    display: flex;
+    align-items: center;
+  }
+  
+  .CourseListImg {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    margin-left: 30px;
+  }
+  
+  .CourseListEdit{
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color: #3bb077;
+      color: white;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+  
+  .CourseListDelete{
+      color: red;
+      cursor: pointer;
+  }
+  

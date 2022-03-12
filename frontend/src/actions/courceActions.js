@@ -14,119 +14,113 @@ import {
 } from "../constants/courceConstants";
 import axios from "axios";
 
-export const listCource = ()=> async (dispatch , getState) => {
-    try{
-        dispatch({
-            type: COURCE_LIST_REQUEST,
-        });
+export const listCource = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: COURCE_LIST_REQUEST,
+    });
 
-        // const {
-        //     userLogin : {courceInfo},
-        //      } = getState();
-        
-        const { data } = await axios.get(`/api/cource`);
-            dispatch({
-              type: COURCE_LIST_SUCCESS,
-               payload: data,
+    // const {
+    //     userLogin : {courceInfo},
+    //      } = getState();
+
+    const { data } = await axios.get(`/api/cource`);
+    dispatch({
+      type: COURCE_LIST_SUCCESS,
+      payload: data,
     });
   } catch (error) {
-        const message =
-            error.response && error.response.data.message? 
-            error.response.data.message: error.message;
-        dispatch({
-            type: COURCE_LIST_FAIL,
-            payload: message,
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: COURCE_LIST_FAIL,
+      payload: message,
     });
   }
 };
 
-export const createCourceAction = 
-(title , Description) => async (dispatch, getState)=> {
+export const createCourceAction =
+  (title, Description) => async (dispatch, getState) => {
     try {
-        dispatch({
-            type: COURCE_CREATE_REQUEST,
-        })
-        // const {
-        //     userLogin: {userInfo},
-        // } = getState();
-        
-    
-    const { data } = await axios.post(`/api/cource/create`, {
-      title,
-      Description,
-    });
+      dispatch({
+        type: COURCE_CREATE_REQUEST,
+      });
+      // const {
+      //     userLogin: {userInfo},
+      // } = getState();
 
-    dispatch ({
+      const { data } = await axios.post(`/api/cource/create`, {
+        title,
+        Description,
+      });
+
+      dispatch({
         type: COURCE_CREATE_SUCCESS,
-        payload:data,
-    });
+        payload: data,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
 
-    }catch(error) {
-        const message = 
-         error.response && error.response.data.message? 
-            error.response.data.message: error.message;
-
-        dispatch({
-            type:COURCE_CREATE_FAIL,
-            payload:message,
-        });
+      dispatch({
+        type: COURCE_CREATE_FAIL,
+        payload: message,
+      });
     }
-
-};
+  };
 
 export const updateCourceAction =
-(id ,title , Description) => async (dispatch , getState)=>{
-    try{
-        dispatch({
-            type: COURCE_UPDATE_REQUEST,
-        });
-    const {data} =await axios.put(`/api/cource/${id}`,
-    {title , Description}
-    );
-    
-    dispatch({
-        type : COURCE_UPDATE_SUCCESS,
-        payload : data
-    });
-    }catch(error)
-    {
-        const message =
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message;
-
-        dispatch ({
-            type: COURCE_UPDATE_FAIL,
-            payload : message,
-        });
-    }
-};
-
-
-export const deleteCourceAction = (id) => async (dispatch , getState) => {
+  (id, title, Description) => async (dispatch, getState) => {
     try {
-        dispatch({
-            type: COURCE_DELETE_REQUEST,
+      dispatch({
+        type: COURCE_UPDATE_REQUEST,
+      });
+      const { data } = await axios.put(`/api/cource/${id}`, {
+        title,
+        Description,
+      });
 
-        });
+      dispatch({
+        type: COURCE_UPDATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
 
-        const {data} = await axios.delete(`/api/cource/${id}`);
+      dispatch({
+        type: COURCE_UPDATE_FAIL,
+        payload: message,
+      });
+    }
+  };
 
+export const deleteCourceAction = (id) => async (dispatch, getState) => {
+  try {
     dispatch({
-        type : COURCE_DELETE_SUCCESS,
-        payload : data,
+      type: COURCE_DELETE_REQUEST,
     });
 
-    }catch(error) {
+    const { data } = await axios.delete(`/api/cource/${id}`);
 
-        const message =
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message;
-        dispatch ({
-            type : COURCE_DELETE_FAIL,
-            payload : message,
-        });
-
-    }
+    dispatch({
+      type: COURCE_DELETE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: COURCE_DELETE_FAIL,
+      payload: message,
+    });
+  }
 };

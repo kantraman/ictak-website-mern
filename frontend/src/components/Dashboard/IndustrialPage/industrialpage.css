@@ -1,0 +1,8 @@
+.industrialpage{
+    flex: 4;
+
+}
+.industrialtable{
+    display: flex;
+    height: 80%;
+}

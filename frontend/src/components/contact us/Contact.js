@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 function Contact() {
     return (
         <>
-            <Navbar />
+            <div style={{zIndex:999, position:'relative'}}><Navbar /></div>
             <div className='contact'>
                 <ContactBanner />
                 <ContactSection />

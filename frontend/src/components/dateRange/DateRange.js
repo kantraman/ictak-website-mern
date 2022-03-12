@@ -4,6 +4,7 @@ import useToken from '../Admin/useToken';
 import Topbar from '../Dashboard/topbar/Topbar';
 import Sidebar from '../Dashboard/sidebar/Sidebar';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import Logout from '../Admin/logout';
 
 const DateRange = (props) => {
     const expType = props.type;
@@ -24,29 +25,34 @@ const DateRange = (props) => {
     const handleShow = () => setShow(true);
     //Set Title
     useEffect(() => {
-        let frmTitle = ""
+        let frmTitle = title;
         switch (expType) {
             case 1: //Premium Membership application
-                frmTitle = "Premium Membership application - ";
+                frmTitle = "Premium Membership Application - ";
                 break;
             case 2: //Corporate Membership application
-                frmTitle = "Corporate Membership application - ";
+                frmTitle = "Corporate Membership Application - ";
                 break;
             case 3: //Partnership application
-                frmTitle = "Partnership application - ";
+                frmTitle = "Partnership Application - ";
                 break;
             case 4: //Contact us messages
-                frmTitle = "Contact us messages - ";
+                frmTitle = "Contact us Messages - ";
+                break;
+            case 5: //Course reg. application
+                frmTitle = "Course Registration - ";
                 break;
             default:
                 frmTitle = "";
                 break;
         }
-        setTitle(frmTitle);
-        setDetails([]);
-        setErrorValues({});
-        setPostValues(initValues);
-        handleClose();
+        if (frmTitle !== title) {
+            setTitle(frmTitle);
+            setDetails([]);
+            setErrorValues({});
+            setPostValues(initValues);
+            handleClose();
+        }
     }, [expType])
 
     //Input values to postValues
@@ -59,26 +65,27 @@ const DateRange = (props) => {
         let fromDate = postValues.fromDate;
         let toDate = postValues.toDate;
         let isValid = true;
+        let validationErrors = {};
 
         if (!postValues.fromDate)
-            errorValues.fromDate = "From date is required";
+            validationErrors.fromDate = "From date is required";
         if (!postValues.toDate)
-            errorValues.toDate = "To date is required";
+            validationErrors.toDate = "To date is required";
         if (isNaN(new Date(fromDate).getTime())) {
             isValid = false;
-            errorValues.fromDate = "Invalid from Date";
+            validationErrors.fromDate = "Invalid from Date";
         }
         if (isNaN(new Date(toDate).getTime())) {
             isValid = false;
-            errorValues.toDate = "Invalid to Date";
+            validationErrors.toDate = "Invalid to Date";
         }
         if (isValid) {
-            if (new Date(fromDate).getMilliseconds() > new Date(toDate).getMilliseconds()) {
-                errorValues.fromDate = "From date cannot be greater than to date";
+            if (new Date(fromDate) > new Date(toDate)) {
+                validationErrors.fromDate = "From date cannot be greater than to date";
             }
         }
         
-        return errorValues;
+        return validationErrors;
     }
     //Manage form submit
     const handleSubmit = (event) => {
@@ -106,6 +113,9 @@ const DateRange = (props) => {
             case 4: //Contact us messages
                 getEP = "api/contact/export-msg";
                 break;
+            case 5: //Course reg. applications
+                getEP = "api/dashboard/export-student-appl";
+                break;
             default:
                 getEP = "api/membership/export-academic";
                 break;
@@ -118,7 +128,10 @@ const DateRange = (props) => {
                     'x-access-token': token
                 }
             });
-            
+            if (response.status === 401) {
+                Logout();
+                return 0;
+            }
             if (response.headers.get('Content-Type') ===
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
                 const blob = await response.blob();
@@ -159,6 +172,9 @@ const DateRange = (props) => {
             case 4: //Contact us messages
                 getEP = "api/contact/messages";
                 break;
+            case 5: //Course reg. applications
+                getEP = "api/dashboard/view-student-appl";
+                break;
             default:
                 getEP = "api/membership/export-academic";
                 break;
@@ -171,6 +187,10 @@ const DateRange = (props) => {
                     'x-access-token': token
                 }
             });
+            if (response.status === 401) {
+                Logout();
+                return 0;
+            }
             const body = await response.json();
             if (body.status !== "Error") {
                 setDetails(body);
@@ -199,10 +219,11 @@ const DateRange = (props) => {
     return (
         <div>
             <Topbar />
-            <Button variant="primary" onClick={handleShow} className='d-flex align-items-center ml-4'>
-                <HamburgerIcon /> Navigation
-            </Button>
-
+            <div className="d-grid">
+                <Button variant="primary" onClick={handleShow} className='d-flex align-items-center ml-4'>
+                    <HamburgerIcon /> Navigation
+                </Button>
+            </div>
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Navigation</Offcanvas.Title>
@@ -226,10 +247,11 @@ const DateRange = (props) => {
                    
                 <Button type="button" onClick={getDetails}>View</Button> &emsp;
                 <Button type="submit">Export</Button><br /><br />
-                <div style={{ overflow: "auto", "white-space": 'nowrap' }}>
+                <div style={{ overflow: "auto", "whiteSpace": 'nowrap' }}>
                     <ShowDetails details={details} expType={expType} />
                 </div>
             </Form>
+            <div className="p-5"></div>
         </div>
     );
 }
@@ -395,6 +417,37 @@ const ShowDetails = ({ details, expType }) => {
                                                 <td>{item.name}</td>
                                                 <td>{item.email}</td>
                                                 <td>{item.message}</td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                        </Table>
+                    </>
+                );
+                case 5: //Course Reg. Apllications
+                return (
+                    <>
+                        <Table variant="dark" hover>
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email ID</th>
+                                    <th>Mobile No.</th>
+                                    <th>Date of Birth</th>
+                                    <th>Course Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    details.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{item.name}</td>
+                                                <td>{item["Email ID"]}</td>
+                                                <td>{item["Mobile No"]}</td>
+                                                <td>{item["Date of Birth"]}</td>
+                                                <td>{item["Course Name"]}</td>
                                             </tr>
                                         );
                                     })
