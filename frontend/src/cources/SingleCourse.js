@@ -28,10 +28,13 @@ import {
 } from "react-icons/io5";
 import { ReactElement } from "react";
 import { CheckIcon } from "@chakra-ui/icons";
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 
 const Feature = ({ text, icon, iconBg, title }) => {
   return (
     <Stack direction={"row"} align={"center"}>
+      
       <Flex
         w={8}
         h={8}
@@ -94,6 +97,7 @@ function SingleCourse({ match, history }) {
 
   return (
     <div>
+      <Navbar />
       <Flex
         w={"full"}
         h={"100vh"}
@@ -228,7 +232,8 @@ function SingleCourse({ match, history }) {
           </Container>
         </Box>
       </Flex>
-      ;
+      <Footer />
+
     </div>
   );
 }

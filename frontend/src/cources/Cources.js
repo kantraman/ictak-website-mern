@@ -1,10 +1,13 @@
 import React, { useEffect ,useState} from 'react';
-import {Card , CardGroup , Row , Col ,Button} from 'react-bootstrap';
+import {Card , CardGroup , Row , Col ,Button, Offcanvas} from 'react-bootstrap';
 import axios from 'axios';
 import {useDispatch , useSelector} from "react-redux";
 import { deleteCourceAction, listCource } from '../actions/courceActions';
 import { Link } from 'react-router-dom';
 import "./Cources.css";
+import Topbar from '../components/Dashboard/topbar/Topbar';
+import Sidebar from '../components/Dashboard/sidebar/Sidebar';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 const Cources = () => {
   const dispatch = useDispatch();
@@ -20,7 +23,10 @@ const Cources = () => {
 
   const courceDelete = useSelector((state) => state.courceDelete);
   const { loading : loadingDelete , error:errorDelete , success : successDelete } = courceDelete;
-
+  const [show, setShow] = useState(false);
+  //Offcanvas
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const deleteCource = (id) => {
     if (window.confirm("Are You Sure?")) {
       dispatch(deleteCourceAction(id));
@@ -32,9 +38,23 @@ const Cources = () => {
 
   return (
     <div className="container">
+       <Topbar />
+      <div className="d-grid w-100">
+        <Button variant="primary"  onClick={handleShow} className='d-flex align-items-center ml-4'>
+          <HamburgerIcon /> Navigation
+        </Button>
+      </div>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Navigation</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Sidebar />
+        </Offcanvas.Body>
+      </Offcanvas>
       <Link to="/CreateCource">
         <Button style={{ marginLeft: 10, marginBottom: 6 }} size="lg">
-          Add new Cource
+          Add new Course
         </Button>
       </Link>
 
