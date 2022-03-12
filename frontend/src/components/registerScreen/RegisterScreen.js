@@ -13,22 +13,23 @@ const RegisterScreen = () => {
   const [course_name,setCourseName] = useState("");
   const [amount,setAmount] = useState("")
   const [message, setMessage] = useState(null);
+  const [courseError, setError] = useState(false);
 
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const userRegister = useSelector((state) => state.courceRegister);
+  const userRegister = useSelector((state) => state.courseUserRegisterReducer);
   const {loading, error } = userRegister;
-
+                                                                                                                        
   const submit = async (e) => {
-    console.log(error);
     e.preventDefault();
-    try {
-      
-      dispatch(register(name, email,mobile_number,date_of_birth,gender,course_name,amount)) ;
-    } catch (error) {
-      console.log(error)
+    dispatch(register(name, email,mobile_number,date_of_birth,gender,course_name,amount)) ;
+    if (!name || !email || !mobile_number || !date_of_birth || !gender || !course_name || !amount ) {
+      setError(true);
+    } else {
+      navigate("/Cources");
     }
+    
   };
   
   return (
