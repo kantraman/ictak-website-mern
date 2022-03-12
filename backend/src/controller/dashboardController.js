@@ -4,6 +4,7 @@ const Partnership = require('../model/PartnershipInfo');
 const ContactMsg = require('../model/ContactUs');
 const User = require('../model/courceRegisterModel');
 const Course = require('../model/courceModel');
+const convertJsonToExcel = require('../helpers/convertToExcel');
 
 
 const getStatsforGraph = async (req, res) => {
