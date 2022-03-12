@@ -8,7 +8,7 @@ import RegisterScreen from "./components/registerScreen/RegisterScreen";
 import Contact from './components/contact us/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/components/contact us/Contact.css';
-
+import CourcesUser from "./cources/CourcesUser";
 import { AboutUs } from "./components/Aboutus/AboutUs";
 
 import AcademicMemberPage from './components/memberPage/AcademicMemberPage';
@@ -38,7 +38,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Mainpage />} />
               <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/cources" element={<Cources />} />
+              <Route path="/cources" element={<Cources/>} />
               <Route path="/CreateCource" element={<CreateCource />} />
               <Route path="/cource/:id" element={<UpdateCource />} />
               <Route path="/singlecourse/:id" element={<SingleCourse />} />
@@ -73,9 +73,11 @@ function App() {
       <BrowserRouter>
         <main>
           <Routes>
+         
             <Route path="/" element={<Mainpage />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/cources" element={<Cources />} />
+            <Route path="/usercources" element={<CourcesUser />} />
             <Route path="/CreateCource" element={<CreateCource />} />
             <Route path="/cource/:id" element={<UpdateCource />} />
             <Route path="/singlecourse/:id" element={<SingleCourse />} />
