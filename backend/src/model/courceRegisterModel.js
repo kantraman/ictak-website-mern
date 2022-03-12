@@ -24,7 +24,7 @@ const userSchema = mongoose.Schema(
       type : String,
       required : true,
     },
-    cource_name:{
+    course_name:{
       type :String,
       required : true,
     },
