@@ -1,0 +1,4 @@
+DBConnectionString = "mongodb+srv://skrmn:U9qus0cBS8iyTYkm@ictak-casestudy.wabkp.mongodb.net/ictak-website?authSource=admin&replicaSet=atlas-jf8fb7-shard-0&readPreference=primary&ssl=true"
+JWT_Key = "15CDB942B36E2EB2738FE53F38701CB9FAB4688C70BBBFF0CB6D799C65147614"
+EMAIL_ID = "nb3.2021cc2@gmail.com"
+EMAIL_PSW = "nb3Mern2021"
