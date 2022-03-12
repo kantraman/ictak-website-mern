@@ -10,6 +10,8 @@ import { Videocard } from './Videocard/Videocard';
 import { Students } from './Students/Students';
 import TechPartners from './memberPage/TechPartners';
 import { Knowledgepartner } from './Knowledge/Knowledgepartner';
+import Cources from '../cources/Cources';
+import CourcesUser from '../cources/CourcesUser';
 
 export const Mainpage = () => {
   return (
@@ -22,6 +24,7 @@ export const Mainpage = () => {
     <Scroll/>
     <CounterCard/>
     <Videocard/>
+   <CourcesUser/>
     <Students/>
     <TechPartners/>
     <Knowledgepartner/>
