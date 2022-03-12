@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { Button, Card, Form } from "react-bootstrap";
 import { createCourceAction } from "../actions/courceActions";
 import { useNavigate } from "react-router-dom";
+import { Offcanvas } from 'react-bootstrap';
 import {
   Container,
   Flex,
@@ -20,6 +21,9 @@ import {
   InputLeftElement,
   Textarea,
 } from "@chakra-ui/react";
+import Topbar from '../components/Dashboard/topbar/Topbar';
+import Sidebar from '../components/Dashboard/sidebar/Sidebar';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 function CreateCource({ a }) {
   const [title, setTitle] = useState("");
@@ -31,6 +35,10 @@ function CreateCource({ a }) {
   const courceCreate = useSelector((state) => state.courceCreate);
   const { loading, error, cource } = courceCreate;
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  //Offcanvas
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -44,10 +52,24 @@ function CreateCource({ a }) {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <Container bg="#9DC4FB" maxW="full" mt={0} centerContent overflow="hidden">
+      <Topbar />
+      <div className="d-grid w-100">
+        <Button variant="solid" onClick={handleShow} className='d-flex align-items-center ml-4'>
+          <HamburgerIcon /> Navigation
+        </Button>
+      </div>
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Navigation</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Sidebar />
+        </Offcanvas.Body>
+      </Offcanvas>
       <Flex>
         <Box
           bg="#02054B"
