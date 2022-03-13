@@ -4,7 +4,7 @@ const asyncHandler = require ("express-async-handler");
 
 const getCource = asyncHandler(async (req,res)=> {
     const cource = await Cource.find();
-    console.log(cource);
+    
     res.json(cource);
 });
 
@@ -12,8 +12,7 @@ const createCource = asyncHandler(async (req , res ) =>{
     const {title , Description } =req.body;
 
     if(!title || !Description ){
-        res.status(400);
-    throw new Error("Please Fill all the fields");    
+        res.status(400).send("Please Fill all the fields");    
 }else {
     const postCource = new Cource({ title , Description})
 

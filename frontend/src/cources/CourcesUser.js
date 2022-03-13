@@ -1,14 +1,11 @@
 import React, { useEffect ,useState} from 'react';
-import {Card , CardGroup , Row , Col ,Button, Offcanvas} from 'react-bootstrap';
+import {Card , CardGroup , Row , Col ,Button } from 'react-bootstrap';
 import axios from 'axios';
 import {useDispatch , useSelector} from "react-redux";
 import { deleteCourceAction, listCource } from '../actions/courceActions';
 import { Link } from 'react-router-dom';
 import "./Cources.css";
-import Topbar from '../components/Dashboard/topbar/Topbar';
-import Sidebar from '../components/Dashboard/sidebar/Sidebar';
-import { HamburgerIcon } from '@chakra-ui/icons';
-import { color } from '@chakra-ui/react';
+
 
 const CourcesUser = () => {
   const dispatch = useDispatch();
@@ -93,7 +90,7 @@ const CourcesUser = () => {
                 <div style={{ marginBottom: "20px" }}>
                   
 
-                  <Button href="/registerScreen">Apply Now</Button>
+                  <Button href={`/registerScreen?course=${cource.title}`}>Apply Now</Button>
                 </div>
               </Card>
             </CardGroup>

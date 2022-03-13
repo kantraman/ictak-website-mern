@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register  } from "../../actions/userActions";
 const RegisterScreen = () => {
+  const navigate = useNavigate();
+  const [queryCourse] = useSearchParams();
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [mobile_number,setMobileNumber] = useState("");
   const [date_of_birth,setDateOfBirth] = useState("");
   const [gender,setGender] = useState("");
-  const [course_name,setCourseName] = useState("");
+  const [course_name,setCourseName] = useState(queryCourse.get("course"));
   const [amount,setAmount] = useState("")
   const [message, setMessage] = useState(null);
   const [courseError, setError] = useState(false);
-
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const userRegister = useSelector((state) => state.courseUserRegisterReducer);
@@ -27,6 +28,7 @@ const RegisterScreen = () => {
     if (!name || !email || !mobile_number || !date_of_birth || !gender || !course_name || !amount ) {
       setError(true);
     } else {
+      window.alert(`Application for ${course_name} Registration submitted successfully.`);
       navigate("/Cources");
     }
     

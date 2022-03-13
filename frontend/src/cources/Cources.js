@@ -114,7 +114,7 @@ const Cources = () => {
                     Delete
                   </Button>
 
-                  <Button href="/registerScreen">Apply Now</Button>
+                  <Button href={`/registerScreen?course=${cource.title}`}>Apply Now</Button>
                 </div>
               </Card>
             </CardGroup>

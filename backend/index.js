@@ -37,13 +37,14 @@ app.use("/api/register", courceRegisterRouter);
 
 app.use((err, req, res, next) => {
     res.status(err.status || 500)
-    res.send({
-      error: {
-        status: err.status || 500,
-        message: err.message,
-      },
-    })
-  })
+	if (!res.headersSent)
+		res.send({
+		  error: {
+			status: err.status || 500,
+			message: err.message,
+		  },
+		});
+  });
   
 
 

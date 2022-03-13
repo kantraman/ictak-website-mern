@@ -26,7 +26,6 @@ import {
   IoLogoBitcoin,
   IoSearchSharp,
 } from "react-icons/io5";
-import { ReactElement } from "react";
 import { CheckIcon } from "@chakra-ui/icons";
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -70,28 +69,26 @@ const features = [
 ];
 
 function SingleCourse({ match, history }) {
-  const [title, setTitle] = useState();
-  const [Description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [Description, setDescription] = useState("");
   const navigate = useNavigate();
   const [date, setDate] = useState("");
   let courseId = useParams();
 
-  const handleOnClick = useCallback(
-    () => navigate("/registerScreen", { replace: true }),
-    [navigate]
-  );
+  const handleOnClick =
+    () => navigate("/registerScreen?course=" + title, { replace: true });
 
   const dispatch = useDispatch();
 
+  const fetching = async () => {
+    const { data } = await axios.get(`/api/cource/${courseId.id}`);
+
+    setTitle(data.title);
+    setDescription(data.Description);
+    setDate(data.updatedAt);
+  };
+
   useEffect(() => {
-    const fetching = async () => {
-      const { data } = await axios.get(`/api/cource/${courseId.id}`);
-
-      setTitle(data.title);
-      setDescription(data.Description);
-      setDate(data.updatedAt);
-    };
-
     fetching();
   }, [courseId.id, date]);
 
